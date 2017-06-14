@@ -2,6 +2,7 @@
 
 import ViewIndexComponent from './../components/view-index/view-index.component';
 import LoginComponent from './../components/view-login/view-login.component';
+import ListingComponent from './../components/view-listing-create/view-listing-create.component';
 
 import MoviesService from './../services/movies/movies.service';
 
@@ -30,6 +31,13 @@ export default function config ($stateProvider, $urlRouterProvider){
 
         })
 
+	
+        .state('listingAdd', {
+            url: '/listingAdd',
+            component: ViewListingCreateComponent.name,
+
+        })
+	
         .state('login', {
             url: '/login',
             component: LoginComponent.name,
