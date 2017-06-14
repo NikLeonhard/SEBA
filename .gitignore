@@ -49,3 +49,4 @@ jspm_packages
 # Distribution files
 dist/
 Backend/node_modules/
+SponsR_database/
