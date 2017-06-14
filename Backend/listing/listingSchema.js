@@ -2,17 +2,18 @@
 var mongoose = require('mongoose');
 
 // Define our movie schema
-var Movie   = new mongoose.Schema({
+var Listing   = new mongoose.Schema({
     title: String,
-    synopsis: String,
-    mpaa_rating: String,
-    year: Number,
-    user: {
+    type: String,
+    amount: Number,
+    area: String,
+    description: String,
+    owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
 });
 
 // Export the Mongoose model
-module.exports = mongoose.model('Movie', Movie);
+module.exports = mongoose.model('Listing', Listing);
 

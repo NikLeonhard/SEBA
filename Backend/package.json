@@ -1,7 +1,7 @@
 {
   "name": "sponsr-backend",
   "version": "1.0.0",
-  "description": "SponsR Backend",
+  "description": "SponsR backend as a service",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -11,11 +11,11 @@
     "url": "https://github.com/NikLeonhard/SEBA"
   },
   "keywords": [
-    "movie-backend",
+    "sponsr-backend",
     "seba",
     "master"
   ],
-  "author": "sebis",
+  "author": "sebamaster-team07",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/NikLeonhard/SEBA/issues"
