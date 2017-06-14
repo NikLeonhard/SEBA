@@ -10,3 +10,13 @@
 	font-size: .5em;
     color: #bcbcbc;
 }
+
+blockquote {
+    width: 100%;
+    color: #5c4c40;
+    text-align: left;
+    border-left: 2px solid #897860;
+    padding-left: 5px;
+    margin:0 auto;
+    display:table
+}
