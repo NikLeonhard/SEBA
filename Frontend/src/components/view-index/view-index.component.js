@@ -1,6 +1,7 @@
 'use strict';
 
 import template from './view-index.template.html';
+import './view-index.style.css';
 
 
 class ViewIndexComponent {
@@ -16,7 +17,7 @@ class ViewIndexComponent {
 
 }
 
-class viewIndexComponentController{
+class viewIndexComponentController {
     constructor($state){
         this.$state = $state;
     }
@@ -25,6 +26,9 @@ class viewIndexComponentController{
         return ['$state'];
     }
 
+	static get logoURL() {
+		return '/img/logo.png';	
+	}
 }
 
 export default ViewIndexComponent;
