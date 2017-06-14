@@ -1,6 +1,6 @@
 'use strict';
 
-import AppIndexComponent from './../components/view-index/view-index.component';
+import ViewIndexComponent from './../components/view-index/view-index.component';
 import LoginComponent from './../components/view-login/view-login.component';
 
 import MoviesService from './../services/movies/movies.service';
