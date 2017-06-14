@@ -2,24 +2,24 @@
     <md-content class="md-no-momentum">
         <h1> {{$ctrl.movie.title}} </h1>
         <br/>
-        <form name="movieForm">
+        <form name="listingForm">
             <md-input-container class="md-icon-float md-block">
                 <label>Title</label>
                 <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.movie.title" type="text">
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <label>Year</label>
-                <md-icon><ng-md-icon icon="date_range" ></ng-md-icon></md-icon>
+                <label>Amount</label>
+                <md-icon><ng-md-icon icon="attach_money" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.movie.year" type="text">
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
-                <label>MPAA Rating</label>
-                <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
+                <label>Postal Code</label>
+                <md-icon><ng-md-icon icon="local_post_office" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.movie.mpaa_rating" type="text">
             </md-input-container>
             <md-input-container class="md-block">
-                <label>Synopsis</label>
+                <label>Description</label>
                 <textarea ng-model="$ctrl.movie.synopsis" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
             </md-input-container>
             <div layout="row">

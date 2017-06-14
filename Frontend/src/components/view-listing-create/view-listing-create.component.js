@@ -19,7 +19,7 @@ class ViewListingCreateComponent {
 
 class ViewListingCreateComponentController {
     constructor($state/*, MoviesService,UserService*/){
-        //this.movie = {};
+        this.title = {};
         this.$state = $state;
         //this.MoviesService = MoviesService;
         //this.UserService = UserService;

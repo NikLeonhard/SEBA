@@ -2,7 +2,7 @@
 
 import ViewIndexComponent from './../components/view-index/view-index.component';
 import LoginComponent from './../components/view-login/view-login.component';
-import ListingComponent from './../components/view-listing-create/view-listing-create.component';
+import ViewListingCreateComponent from './../components/view-listing-create/view-listing-create.component';
 
 import MoviesService from './../services/movies/movies.service';
 
