@@ -16,6 +16,9 @@ import Middlewares from './config/middlewares';
 
 import AppContent from './components/app-content/app-content';
 import ViewIndex from './components/view-index/view-index';
+import ViewListingCreate from './components/view-listing-create/view-listing-create';
+
+
 import ViewMovies from './components/view-movies/view-movies';
 import ViewMovie from './components/view-movie/view-movie';
 import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
@@ -33,6 +36,8 @@ let app = angular.module('app', [
     MoviesService.name,
     AppContent.name,
 	ViewIndex.name,
+	ViewListingCreate.name,
+	
     ViewMovies.name,
     ViewMovie.name,
     ViewMovieEdit.name,

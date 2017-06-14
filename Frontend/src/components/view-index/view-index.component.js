@@ -21,7 +21,7 @@ class viewIndexComponentController {
     constructor($state){
         this.$state = $state;
     }
-
+	
     static get $inject(){
         return ['$state'];
     }

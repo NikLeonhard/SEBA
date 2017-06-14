@@ -25,7 +25,6 @@ class AppHeaderComponentController{
     constructor($state,UserService){
         this.$state = $state;
         this.UserService = UserService;
-
     }
 
     openMenu($mdMenu, ev) {
@@ -43,7 +42,15 @@ class AppHeaderComponentController{
 
 
     goHome(){
-        this.$state.go('movies',{});
+        this.$state.go('index',{});
+    }
+
+	newListing(){
+        if (this.UserService.isAuthenticated()) {
+            this.$state.go('listingAdd',{});
+        } else {
+            this.$state.go('login',{});
+		}
     }
 
     login(){
@@ -52,7 +59,7 @@ class AppHeaderComponentController{
 
     logout(){
         this.UserService.logout();
-        this.$state.go('movies',{});
+        this.$state.go('index',{});
     }
 
     static get $inject(){
