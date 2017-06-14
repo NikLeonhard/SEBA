@@ -1,6 +1,6 @@
 'use strict';
 
-import AppIndexComponent from './../components/app-index/app-index.component';
+import AppIndexComponent from './../components/view-index/view-index.component';
 import LoginComponent from './../components/view-login/view-login.component';
 
 import MoviesService from './../services/movies/movies.service';
@@ -26,7 +26,7 @@ export default function config ($stateProvider, $urlRouterProvider){
     $stateProvider
         .state('index', {
             url: '/index',
-            component: AppIndexComponent.name,
+            component: ViewIndexComponent.name,
 
         })
 
