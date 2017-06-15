@@ -1,7 +1,7 @@
 <md-toolbar>
 	<div class="navbar navbar-inverse" style="min-height: auto; border-radius: 0;">
 		<div class="container-fluid">
-			<form class="navbar-form navbar-left" style="margin: 0; width: 80%">
+			<form class="navbar-form navbar-left" style="margin: 0;">
 				<md-button id="logo-button" class="btn btn-link" aria-label="SponsR" ng-click="$ctrl.goHome()">
 					<md-icon><ng-md-icon icon="link"></ng-md-icon></md-icon>
 					SponsR
@@ -13,11 +13,7 @@
 			</form>
 
 
-			<ul class="nav navbar-form navbar-right" style="width: 20%;">
-				<li ng-if="$ctrl.isAuthenticated()">
-					Logged in as {{$ctrl.getCurrentUser()}}
-					<ng-md-icon id="account-avatar" icon="account_circle" ></ng-md-icon>
-				</li>
+			<div class="nav navbar-right">
 				<md-menu>
 					<md-button aria-label="More" class="md-icon-button" ng-click="$ctrl.openMenu($mdMenu, $event)">
 						<md-icon><ng-md-icon icon="more_vert" ></ng-md-icon></md-icon>
@@ -44,27 +40,32 @@
 						</md-menu-item>
 					</md-menu-content>
 				</md-menu>
+			</div>
+			<ul class="nav navbar-form navbar-right">
+				<li ng-if="$ctrl.isAuthenticated()">
+					Logged in as {{$ctrl.getCurrentUser()}}
+					<ng-md-icon id="account-avatar" icon="account_circle" ></ng-md-icon>
+				</li>
 			</ul>
-
 
 
 		</div>
 		<div class="container-fluid">
-				<button class="btn btn-link" type="button">Find Sponsors</button>
+			<button class="btn btn-link" type="button">Find Sponsors</button>
 
-				<button class="btn btn-link" type="button">Find Sponsor Seekers</button>
+			<button class="btn btn-link" type="button">Find Sponsor Seekers</button>
 
-				<md-button class="btn btn-link" aria-label="Create New Listing" ng-click="$ctrl.newListing()">
-					Create New Listing
-				</md-button>
+			<md-button class="btn btn-link" aria-label="Create New Listing" ng-click="$ctrl.newListing()">
+				Create New Listing
+			</md-button>
 
-				<button class="btn btn-link" type="button">Your Listings</button>
+			<button class="btn btn-link" type="button">Your Listings</button>
 
-				<button class="btn btn-link" type="button">Legal Advice</button>
+			<button class="btn btn-link" type="button">Legal Advice</button>
 
-				<button class="btn btn-link" type="button">Tutorials</button>
+			<button class="btn btn-link" type="button">Tutorials</button>
 
-				<button class="btn btn-link" type="button">Messages</button>
+			<button class="btn btn-link" type="button">Messages</button>
 		</div>
 	</div>
 </md-toolbar>
