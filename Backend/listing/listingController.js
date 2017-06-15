@@ -2,9 +2,10 @@
 var Listing = require('./listingSchema');
 exports.postListing = function(req, res) {
     var listing = new Listing(req.body);
-    //do not allow user to fake identity. The user who postet the movie must be the same user that is logged in
-    if (!req.user.equals(listing.owner)) {
+    //do not allow user to fake identity. The user who posted the listing must be the same user that is logged in
+    if (!req.user.equals(listing.user)) {
         res.sendStatus(401);
+        return;
     }
     listing.save(function(err, newListing) {
         if (err) {
@@ -14,9 +15,6 @@ exports.postListing = function(req, res) {
         res.status(201).json(newListing);
     });
 };
-// exports.getListings = function(req, res) {
-//     console.log("test");
-//     };
 // Create endpoint /api/listings for GET
 exports.getListings = function(req, res) {
     Listing.find(function(err, listings) {

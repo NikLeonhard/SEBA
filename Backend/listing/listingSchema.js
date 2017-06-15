@@ -1,14 +1,29 @@
 // Load required packages
 var mongoose = require('mongoose');
 
-// Define our movie schema
+// Define our listing schema
 var Listing   = new mongoose.Schema({
-    title: String,
-    type: String,
-    amount: Number,
-    area: String,
-    description: String,
-    owner: {
+    title: {
+        type: String,
+        required: true
+    },
+    type: {
+        type: String,
+        required: true
+    },
+    amount: {
+        type: String,
+        required: true
+    },
+    postcode: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }

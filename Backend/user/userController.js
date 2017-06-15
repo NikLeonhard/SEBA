@@ -2,6 +2,16 @@ var Config = require('../config/config.js');
 var User = require('./userSchema');
 var jwt = require('jwt-simple');
 
+module.exports.get = function(req, res){
+    User.find(function(err, users) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+        res.json(users);
+    });
+}
+
 module.exports.login = function(req, res){
 
     if(!req.body.username){
