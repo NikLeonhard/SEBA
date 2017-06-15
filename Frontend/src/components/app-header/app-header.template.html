@@ -1,8 +1,8 @@
 <md-toolbar>
 	<div class="navbar navbar-inverse" style="min-height: auto; border-radius: 0;">
 		<div class="container-fluid">
-			<form class="navbar-form navbar-left" style="margin: 0;">
-				<md-button style="font-family: 'Carrois Gothic SC', sans-serif;" class="btn btn-link" aria-label="SponsR" ng-click="$ctrl.goHome()">
+			<form class="navbar-form navbar-left" style="margin: 0; width: 80%">
+				<md-button id="logo-button" class="btn btn-link" aria-label="SponsR" ng-click="$ctrl.goHome()">
 					<md-icon><ng-md-icon icon="link"></ng-md-icon></md-icon>
 					SponsR
 				</md-button>
@@ -13,10 +13,10 @@
 			</form>
 
 
-			<ul class="nav navbar-nav navbar-right">
+			<ul class="nav navbar-form navbar-right" style="width: 20%;">
 				<li ng-if="$ctrl.isAuthenticated()">
 					Logged in as {{$ctrl.getCurrentUser()}}
-					<ng-md-icon icon="account_circle" ></ng-md-icon>
+					<ng-md-icon id="account-avatar" icon="account_circle" ></ng-md-icon>
 				</li>
 				<li ng-if="!$ctrl.isAuthenticated()">
 					<button type="button" class="btn btn-default navbar-btn">
