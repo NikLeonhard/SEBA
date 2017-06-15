@@ -1,37 +1,15 @@
 <md-toolbar>
-	<div class="navbar navbar-inverse">
-		<div class="container-flud">
-
-			<a ui-sref="movies" layout="row" class="navbar-brand" style="font-family: 'Carrois Gothic SC', sans-serif;">
-				<md-icon><ng-md-icon icon="link" ></ng-md-icon></md-icon>
-				<md-button class="btn btn-link" aria-label="SponsR" ng-click="$ctrl.goHome()">
+	<div class="navbar navbar-inverse" style="min-height: auto; border-radius: 0;">
+		<div class="container-fluid">
+			<form class="navbar-form navbar-left" style="margin: 0;">
+				<md-button style="font-family: 'Carrois Gothic SC', sans-serif;" class="btn btn-link" aria-label="SponsR" ng-click="$ctrl.goHome()">
+					<md-icon><ng-md-icon icon="link"></ng-md-icon></md-icon>
 					SponsR
 				</md-button>
-			</a>
 
-
-			<form class="navbar-form navbar-left">
 				<div class="form-group">
 					<input type="text" class="form-control" placeholder="Search">
 				</div>
-
-				<button class="btn btn-link" type="button">Find Sponsors</button>
-
-				<button class="btn btn-link" type="button">Find Sponsor Seekers</button>
-
-				<md-button class="btn btn-link" aria-label="Create New Listing" ng-click="$ctrl.newListing()">
-					Create New Listing
-				</md-button>
-				
-				<button class="btn btn-link" type="button">Your Listings</button>
-
-				<button class="btn btn-link" type="button">Legal Advice</button>
-
-				<button class="btn btn-link" type="button">Tutorials</button>
-
-				<button class="btn btn-link" type="button">Messages</button>
-
-
 			</form>
 
 
@@ -46,6 +24,7 @@
 					</button>
 				</li>
 			</ul>
+
 
 			<!--
 <md-menu>
@@ -75,6 +54,23 @@ Login
 </md-menu-content>
 </md-menu>
 -->
+		</div>
+		<div class="container-fluid">
+				<button class="btn btn-link" type="button">Find Sponsors</button>
+
+				<button class="btn btn-link" type="button">Find Sponsor Seekers</button>
+
+				<md-button class="btn btn-link" aria-label="Create New Listing" ng-click="$ctrl.newListing()">
+					Create New Listing
+				</md-button>
+
+				<button class="btn btn-link" type="button">Your Listings</button>
+
+				<button class="btn btn-link" type="button">Legal Advice</button>
+
+				<button class="btn btn-link" type="button">Tutorials</button>
+
+				<button class="btn btn-link" type="button">Messages</button>
 		</div>
 	</div>
 </md-toolbar>
