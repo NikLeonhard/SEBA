@@ -8,7 +8,7 @@ import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
 
-import MoviesService from './services/movies/movies';
+import ListingService from './services/listings/listings';
 import UserService from './services/user/user';
 
 import Routes from './config/routes';
@@ -33,7 +33,7 @@ let app = angular.module('app', [
     angularMaterial,
     ngMdIcons,
     UserService.name,
-    MoviesService.name,
+    ListingService.name,
     AppContent.name,
 	ViewIndex.name,
 	ViewListingCreate.name,

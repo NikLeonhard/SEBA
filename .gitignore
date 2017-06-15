@@ -51,3 +51,4 @@ jspm_packages
 dist/
 Backend/node_modules/
 SponsR_database/
+Backend/config/config.js
