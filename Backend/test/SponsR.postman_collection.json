@@ -1,0 +1,493 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SponsR",
+		"_postman_id": "b6c05c3e-0ccf-7426-b05d-673418d0a1c0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listing Endpoints",
+			"description": "",
+			"item": [
+				{
+					"name": "Create one Listing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"tests[\"Movie title is as expected\"] = jsonData.title == postman.getGlobalVariable(\"movieTitle\");",
+									"",
+									"//postman cannot save objects and serialization doesnt work with {{}}",
+									"postman.setGlobalVariable('movieId',jsonData._id);",
+									"postman.setGlobalVariable('movieTitle',jsonData.title);",
+									"postman.setGlobalVariable('movieSynopsis',jsonData.synopsis);",
+									"postman.setGlobalVariable('movieYear',jsonData.year);",
+									"postman.setGlobalVariable('movieUser',jsonData.user);"
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var newd = new Date();",
+									"postman.setGlobalVariable('movieTitle', newd.toString() + \"ajkds\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{HOST}}/api/listings",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"title\": \"ListingTitle5\",\n\"type\":\"Sponsor Seeking\",\n\"amount\":\"1000\",\n\"postcode\":\"80805\",\n\"user\": \"594252eaf50909446ae75345\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get one Listing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Get the right Movie\"] = jsonData.title && jsonData.title == postman.getGlobalVariable(\"movieTitle\");",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{HOST}}/api/movies/{{movieId}}",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "hansl",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "111",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Listings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Content-Type is json\"] = postman.getResponseHeader(\"Content-Type\").has(\"json\");",
+									"",
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Response is an array\"] = jsonData instanceof Array;",
+									"tests[\"Multiple responses\"] = jsonData.length > 1;",
+									"",
+									"",
+									"//cleanup",
+									"",
+									"postman.clearGlobalVariable(\"movieId\");",
+									"postman.clearGlobalVariable(\"movieTitle\");",
+									"postman.clearGlobalVariable(\"movieYear\");",
+									"postman.clearGlobalVariable(\"movieSynopsis\");",
+									"postman.clearGlobalVariable(\"newMovieTitle\");",
+									"postman.clearGlobalVariable(\"token\");",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{HOST}}/api/listings",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "hansl",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "111",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Edit one Listing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"tests[\"Title has changed as expected\"] = jsonData.title === postman.getGlobalVariable(\"newMovieTitle\");",
+									"",
+									""
+								]
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var newD = new Date();",
+									"postman.setGlobalVariable(\"newMovieTitle\", newD.toString() + \"xyz\");"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{HOST}}/api/listings/{{listingId}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"_id\":\"{{listingId}}\",\n    \"title\":\"New Listing Title\",\n    \"type\":\"Sponsor Seeking\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete one Listing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{HOST}}/api/listings/<listingId>",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "unauthorized create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 401 forbidden\"] = responseCode.code === 401;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{HOST}}/api/listings",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT invalid",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "unauthorized editing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 401 forbidden\"] = responseCode.code === 401;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{HOST}}/api/listings/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT invalid",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "unauthorized deleting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 401 forbidden\"] = responseCode.code === 401;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{HOST}}/api/listings/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT invalid",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "hansl",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "111",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Endpoints",
+			"description": "",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var token = JSON.parse(responseBody).token;",
+									"tests[\"Contains token\"] = token;",
+									"",
+									"postman.setGlobalVariable(\"token\", token);",
+									"",
+									"var decodedTokenData = JSON.parse(atob(token.split('.')[1]));",
+									"",
+									"tests[\"correct username encoded in token\"] = decodedTokenData.user.username == postman.getEnvironmentVariable(\"USERNAME\");",
+									"",
+									"postman.setGlobalVariable(\"user_id\", decodedTokenData.user._id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{HOST}}/api/users/signup",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{USERNAME}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{PWD}}",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Unregister",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{HOST}}/unregister",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "JWT {{token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var token = JSON.parse(responseBody).token;",
+									"tests[\"Contains token\"] = token;",
+									"tests[\"Same token as register token\"] = token == postman.getGlobalVariable(\"token\");",
+									"",
+									"",
+									"",
+									"",
+									"",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "{{HOST}}/api/users/login",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{HOST}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{PWD}}",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get all Users",
+					"request": {
+						"url": "{{HOST}}/api/users",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
