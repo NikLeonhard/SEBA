@@ -18,6 +18,18 @@
                 <md-icon><ng-md-icon icon="local_post_office" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.listing.postcode" type="text">
             </md-input-container>
+
+            <div class="form-group">
+                <label for="sel1">Listing Type:</label>
+                <md-input-container class="md-icon-float md-block">
+                <select class="form-control" id="sel1" ng-model="$ctrl.listing.type">
+                    <option>Sponsor Offer</option>
+                    <option>Sponsor Seeking</option>
+
+                </select>
+                </md-input-container>
+            </div>
+
             <md-input-container class="md-block">
                 <label>Description</label>
                 <textarea ng-model="$ctrl.movie.description" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
