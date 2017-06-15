@@ -62,6 +62,10 @@ class AppHeaderComponentController{
         this.$state.go('index',{});
     }
 
+    findSponsors(){
+        this.$state.go('viewListings',{});
+    }
+
     static get $inject(){
         return ['$state', UserService.name];
     }
