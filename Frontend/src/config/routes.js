@@ -3,6 +3,7 @@
 import ViewIndexComponent from './../components/view-index/view-index.component';
 import LoginComponent from './../components/view-login/view-login.component';
 import ViewListingCreateComponent from './../components/view-listing-create/view-listing-create.component';
+import ViewListingsComponent from './../components/view-listings/view-listings.component';
 
 import MoviesService from './../services/movies/movies.service';
 
@@ -43,6 +44,10 @@ export default function config ($stateProvider, $urlRouterProvider){
             component: LoginComponent.name,
         })
 
+        .state('viewListings', {
+            url: '/viewListings',
+            component: ViewListingsComponent.name,
+        })
 
 }
 
