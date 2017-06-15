@@ -6,37 +6,37 @@
             <md-input-container class="md-icon-float md-block">
                 <label>Title</label>
                 <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.listing.title" type="text">
+                <input ng-model="$ctrl.listing.title" type="text" required>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
                 <label>Amount</label>
                 <md-icon><ng-md-icon icon="attach_money" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.listing.amount" type="text">
+                <input ng-model="$ctrl.listing.amount" type="text" required>
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
                 <label>Postal Code</label>
                 <md-icon><ng-md-icon icon="local_post_office" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.listing.postcode" type="text">
+                <input ng-model="$ctrl.listing.postcode" type="text" required>
             </md-input-container>
 
             <div class="form-group">
                 <label for="sel1">Listing Type:</label>
                 <md-input-container class="md-icon-float md-block">
-                <select class="form-control" id="sel1" ng-model="$ctrl.listing.type">
+                <select class="form-control" id="sel1" ng-model="$ctrl.listing.type" required>
+                    <option value="" disabled selected>Select Listing Type</option>
                     <option>Sponsor Offer</option>
                     <option>Sponsor Seeking</option>
-
                 </select>
                 </md-input-container>
             </div>
 
             <md-input-container class="md-block">
                 <label>Description</label>
-                <textarea ng-model="$ctrl.listing.description" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
+                <textarea ng-model="$ctrl.listing.description" md-maxlength="1000" rows="8" md-select-on-focus required></textarea>
             </md-input-container>
             <div layout="row">
                 <span flex></span>
-                <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Save</md-button>
+                <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()" ng-disabled="listingForm.$invalid">Save</md-button>
                 <md-button class="md-raised" ng-click="$ctrl.cancel()">Cancel</md-button>
             </div>
 
