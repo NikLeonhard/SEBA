@@ -19,10 +19,10 @@ export default class ListingService {
 
     create(listing) {
         let url = this.resourceUrl;
-        return this.$http.post(url,listing).then(responce => {
+        return this.$http.post(url,listing).then(response => {
 
             return new Promise((resolve, reject) => {
-                resolve(responce.data);
+                resolve(response.data);
             });
 
         })

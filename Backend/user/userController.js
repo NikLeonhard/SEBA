@@ -37,8 +37,7 @@ module.exports.login = function(req, res){
         user.comparePassword(req.body.password, function(err, isMatch) {
             if(!isMatch || err){
                 res.status(401).send('Invalid Credentials');
-            } else {
-                res.status(200).json({token: createToken(user)});
+                return;
             }
         });
 		
