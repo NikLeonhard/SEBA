@@ -3,8 +3,8 @@
 
 import template from './view-listing-create.template.html';
 
-// import MoviesService from './../../services/movies/movies.service';
-// import UserService from './../../services/user/user.service';
+import ListingService from './../../services/listings/listings.service';
+import UserService from './../../services/user/user.service';
 
 class ViewListingCreateComponent {
     constructor(){
@@ -18,32 +18,35 @@ class ViewListingCreateComponent {
 }
 
 class ViewListingCreateComponentController {
-    constructor($state/*, MoviesService,UserService*/){
-        this.title = {};
+    constructor($state, ListingService,UserService){
+        this.listing = {};
         this.$state = $state;
-        //this.MoviesService = MoviesService;
-        //this.UserService = UserService;
+        this.ListingService = ListingService;
+        this.UserService = UserService;
     }
 
     cancel() {
         this.$state.go('index',{});
     };
 
-	/*
+
     save() {
         let user = this.UserService.getCurrentUser();
 
-        this.movie['user'] = user['_id'];
-        this.MoviesService.create(this.movie).then(data => {
+        this.listing['user'] = user['_id'];
+        //this.$state.go('index',{});
+        this.ListingService.create(this.listing).then(data => {
             let _id = data['_id'];
-            this.$state.go('movie',{ movieId:_id});
+            //this.$state.go('movie',{ movieId:_id});
+            this.$state.go('index',{});
+            // Go to my listings here
         });
 
     };
-*/
+
 
     static get $inject(){
-        return ['$state'/*, MoviesService.name, UserService.name*/];
+        return ['$state', ListingService.name, UserService.name];
     }
 
 }
