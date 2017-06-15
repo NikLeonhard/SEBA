@@ -1,26 +1,26 @@
 <div layout="column" layout-padding>
     <md-content class="md-no-momentum">
-        <h1> {{$ctrl.movie.title}} </h1>
+        <h1> {{$ctrl.listing.title}} </h1>
         <br/>
         <form name="listingForm">
             <md-input-container class="md-icon-float md-block">
                 <label>Title</label>
                 <md-icon><ng-md-icon icon="title" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.movie.title" type="text">
+                <input ng-model="$ctrl.listing.title" type="text">
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
                 <label>Amount</label>
                 <md-icon><ng-md-icon icon="attach_money" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.movie.year" type="text">
+                <input ng-model="$ctrl.listing.amount" type="text">
             </md-input-container>
             <md-input-container class="md-icon-float md-block">
                 <label>Postal Code</label>
                 <md-icon><ng-md-icon icon="local_post_office" ></ng-md-icon></md-icon>
-                <input ng-model="$ctrl.movie.mpaa_rating" type="text">
+                <input ng-model="$ctrl.listing.postcode" type="text">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Description</label>
-                <textarea ng-model="$ctrl.movie.synopsis" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
+                <textarea ng-model="$ctrl.movie.description" md-maxlength="1000" rows="8" md-select-on-focus></textarea>
             </md-input-container>
             <div layout="row">
                 <span flex></span>
