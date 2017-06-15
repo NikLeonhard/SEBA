@@ -9,6 +9,7 @@ var Listing   = new mongoose.Schema({
     },
     type: {
         type: String,
+        enum: ['Sponsor Offer', 'Sponsor Seeking'],
         required: true
     },
     amount: {
