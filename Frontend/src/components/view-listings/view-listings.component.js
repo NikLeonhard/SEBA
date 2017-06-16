@@ -4,7 +4,7 @@
 'use strict';
 
 import template from './view-listings.template.html';
-import MoviesService from './../../services/listings/listings.service';
+import ListingsService from './../../services/listings/listings.service';
 import UserService from './../../services/user/user.service';
 
 class ViewListingsComponent{
@@ -12,6 +12,9 @@ class ViewListingsComponent{
     constructor(){
         this.controller = ViewListingsComponentController;
         this.template = template;
+        this.bindings = {
+            listings: '<',
+        }
     }
 
     static get name() {
@@ -20,17 +23,15 @@ class ViewListingsComponent{
 }
 
 class ViewListingsComponentController{
-    constructor($state,MoviesService,UserService){
+    constructor($state,ListingsService,UserService){
         this.$state = $state;
-        this.MoviesService = MoviesService;
+        this.Listing = ListingsService;
         this.UserService = UserService;
     }
 
-    //TODO
-    details (listing) {
-        let _id = listing['_id'];
-        this.$state.go('movie',{ movieId:_id});
-    };
+    static get $inject(){
+        return ['$state', ListingsService.name, UserService.name];
+    }
 }
 
 export default ViewListingsComponent;

@@ -40,7 +40,8 @@ module.exports.login = function(req, res){
                 return;
             }
         });
-		
+
+        console.log("Logged in.");
         res.status(200).json({token: createToken(user)});
     });
 

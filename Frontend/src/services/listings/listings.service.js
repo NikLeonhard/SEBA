@@ -14,12 +14,36 @@ export default class ListingService {
     }
 
     static get name() {
-        return 'listingService';
+        return 'listingsService';
     }
 
     create(listing) {
         let url = this.resourceUrl;
         return this.$http.post(url,listing).then(response => {
+
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            });
+
+        })
+    }
+
+    list() {
+
+        let url = this.resourceUrl;
+        return this.$http.get(url).then(response => {
+
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            });
+
+        });
+
+    }
+
+    get(id) {
+        let url = `${ this.resourceUrl }${ id }`;
+        return this.$http.get(url).then(response => {
 
             return new Promise((resolve, reject) => {
                 resolve(response.data);

@@ -5,17 +5,16 @@ import LoginComponent from './../components/view-login/view-login.component';
 import ViewListingCreateComponent from './../components/view-listing-create/view-listing-create.component';
 import ViewListingsComponent from './../components/view-listings/view-listings.component';
 
-import MoviesService from './../services/movies/movies.service';
+import ListingsService from './../services/listings/listings.service';
 
-
-resolveMovie.$inject = ['$stateParams', MoviesService.name];
-function resolveMovie($stateParams,moviesService){
-    return moviesService.get($stateParams.movieId);
+resolveListing.$inject = ['$stateParams', ListingsService.name];
+function resolveListing($stateParams,listingsService){
+    return listingsService.get($stateParams.movieId);
 }
 
-resolveMovies.$inject = [MoviesService.name];
-function resolveMovies(moviesService){
-    return moviesService.list();
+resolveListings.$inject = [ListingsService.name];
+function resolveListings(listingsService){
+    return listingsService.list();
 }
 
 
