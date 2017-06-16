@@ -25,6 +25,7 @@ import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
 import ViewMovieCreate from './components/view-movie-create/view-movie-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewListings from './components/view-listings/view-listings';
+import ViewListing from './components/view-listing/view-listing';
 
 global.jQuery = require('jquery');
 require('bootstrap');
@@ -39,6 +40,7 @@ let app = angular.module('app', [
 	ViewIndex.name,
 	ViewListingCreate.name,
 	ViewListings.name,
+    ViewListing.name,
     ViewMovies.name,
     ViewMovie.name,
     ViewMovieEdit.name,

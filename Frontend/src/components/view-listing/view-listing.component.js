@@ -1,42 +1,59 @@
 /**
- * Created by Fabian on 15.06.2017.
+ * Created by Fabian on 16.06.2017.
  */
+
 'use strict';
 
-import template from './view-listings.template.html';
+import template from './view-listing.template.html';
 import ListingsService from './../../services/listings/listings.service';
 import UserService from './../../services/user/user.service';
 
-class ViewListingsComponent{
-
+class ViewListingComponent {
     constructor(){
-        this.controller = ViewListingsComponentController;
+        this.controller = ViewListingComponentController;
         this.template = template;
         this.bindings = {
-            listings: '<',
+            listing: '<',
         }
+
     }
 
     static get name() {
-        return 'viewListings';
+        return 'viewListing';
     }
+
+
 }
 
-class ViewListingsComponentController{
+class ViewListingComponentController{
     constructor($state,ListingsService,UserService){
         this.$state = $state;
-        this.Listings = ListingsService;
+        this.Listing = ListingsService;
         this.UserService = UserService;
+
     }
 
-    details (listing) {
-        let _id = listing['_id'];
-        this.$state.go('listing',{ listingId:_id});
+    edit () {
+
     };
+
+
+    delete() {
+
+    };
+
+
+    getPosterURL(){
+        let posterURL = 'http://placehold.it/32x32';
+
+        return posterURL;
+    }
 
     static get $inject(){
         return ['$state', ListingsService.name, UserService.name];
     }
+
 }
 
-export default ViewListingsComponent;
+
+export default ViewListingComponent;
