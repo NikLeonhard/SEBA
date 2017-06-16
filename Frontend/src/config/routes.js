@@ -46,6 +46,8 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('viewListings', {
             url: '/viewListings',
             component: ViewListingsComponent.name,
+            resolve:{
+                listings: resolveListings}
         })
 
 }

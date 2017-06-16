@@ -25,7 +25,7 @@ class ViewListingsComponent{
 class ViewListingsComponentController{
     constructor($state,ListingsService,UserService){
         this.$state = $state;
-        this.Listing = ListingsService;
+        this.Listings = ListingsService;
         this.UserService = UserService;
     }
 

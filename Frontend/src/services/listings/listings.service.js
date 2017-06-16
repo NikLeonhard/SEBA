@@ -1,7 +1,7 @@
 'use strict';
 
 
-export default class ListingService {
+export default class ListingsService {
 
     static get $inject() {
         return ['$http', 'API_URL'];
