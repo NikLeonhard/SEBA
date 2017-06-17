@@ -7,6 +7,7 @@
 import template from './view-listing.template.html';
 import ListingsService from './../../services/listings/listings.service';
 import UserService from './../../services/user/user.service';
+import './view-listing.style.css'
 
 class ViewListingComponent {
     constructor(){

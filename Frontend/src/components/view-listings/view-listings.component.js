@@ -6,6 +6,7 @@
 import template from './view-listings.template.html';
 import ListingsService from './../../services/listings/listings.service';
 import UserService from './../../services/user/user.service';
+import './view-listings.style.css'
 
 class ViewListingsComponent{
 
