@@ -34,12 +34,12 @@ class ViewListingCreateComponentController {
         let user = this.UserService.getCurrentUser();
 
         this.listing['user'] = user['_id'];
-        //this.$state.go('index',{});
+
         this.ListingService.create(this.listing).then(data => {
             let _id = data['_id'];
-            //this.$state.go('movie',{ movieId:_id});
-            this.$state.go('index',{});
-            // Go to my listings here
+
+            this.$state.go('viewYourListings',{});
+
         });
 
     };

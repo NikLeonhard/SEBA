@@ -5,6 +5,7 @@ import LoginComponent from './../components/view-login/view-login.component';
 import ViewListingCreateComponent from './../components/view-listing-create/view-listing-create.component';
 import ViewListingsComponent from './../components/view-listings/view-listings.component';
 import ViewListingComponent from './../components/view-listing/view-listing.component';
+import ViewYourListingsComponent from './../components/view-yourlistings/view-yourlistings.component'
 
 import ListingsService from './../services/listings/listings.service';
 
@@ -22,7 +23,7 @@ function resolveListings(listingsService){
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
 export default function config ($stateProvider, $urlRouterProvider){
 
-    // For any unmatched url, redirect to /home
+    // For any unmatched url, redirect to /index
     $urlRouterProvider.otherwise("/index");
 
     $stateProvider
@@ -52,6 +53,13 @@ export default function config ($stateProvider, $urlRouterProvider){
             component: ViewListingsComponent.name,
             resolve:{
                 listings: resolveListings}
+        })
+        .state('viewYourListings',{
+            url:'/viewYourListings',
+            component: ViewYourListingsComponent.name,
+            resolve:{
+                listings: resolveListings
+            }
         })
 }
 

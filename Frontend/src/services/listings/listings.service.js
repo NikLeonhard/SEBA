@@ -41,6 +41,17 @@ export default class ListingsService {
 
     }
 
+    delete(id) {
+        let url = `${ this.resourceUrl }${ id }`;
+        return this.$http.delete(url).then(responce => {
+
+            return new Promise((resolve, reject) => {
+                resolve(responce.status);
+            });
+
+        })
+    }
+
     get(id) {
         let url = `${ this.resourceUrl }${ id }`;
         return this.$http.get(url).then(response => {

@@ -53,6 +53,13 @@ class AppHeaderComponentController{
 		}
     }
 
+    viewYourListings(){
+	    if(this.UserService.isAuthenticated()){
+	        this.$state.go('viewYourListings',[]);}
+	        else{
+        this.$state.go('login',[])}
+    }
+
     login(){
         this.$state.go('login',{});
     }

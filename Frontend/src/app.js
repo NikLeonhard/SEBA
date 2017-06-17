@@ -26,6 +26,7 @@ import ViewMovieCreate from './components/view-movie-create/view-movie-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewListings from './components/view-listings/view-listings';
 import ViewListing from './components/view-listing/view-listing';
+import ViewYourListings from './components/view-yourlistings/view-yourlistings'
 
 global.jQuery = require('jquery');
 require('bootstrap');
@@ -45,8 +46,18 @@ let app = angular.module('app', [
     ViewMovie.name,
     ViewMovieEdit.name,
     ViewMovieCreate.name,
-    ViewLogin.name
+    ViewLogin.name,
+    ViewYourListings.name
 ]);
+
+app.filter('compareUsers',function(listing
+){
+    let currentUser = this.UserService.getCurrentUser();
+    return listing;
+    if(listing.user==currentUser)
+        return listing;
+
+});
 
 app.constant('API_URL', 'http://127.0.0.1:3000/api');
 app.config(Routes);
