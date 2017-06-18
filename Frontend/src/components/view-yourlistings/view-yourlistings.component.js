@@ -42,6 +42,10 @@ class ViewYourListingsComponentController{
             this.listings.splice(index, 1)});
         }
 
+    details (listing) {
+        let _id = listing['_id'];
+        this.$state.go('listing',{ listingId:_id});
+    }
 
 
 

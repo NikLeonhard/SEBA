@@ -35,11 +35,16 @@ class ViewListingComponentController{
     }
 
     edit () {
+        let _id = this.listing['_id'];
+        this.$state.go('viewListingEdit',{ listingId:_id});
 
     };
 
 
     delete() {
+        let _id = this.listing['_id'];
+        this.Listing.delete(_id);
+        this.$state.go('viewYourListings',{});
 
     };
 

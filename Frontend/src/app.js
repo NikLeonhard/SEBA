@@ -26,7 +26,8 @@ import ViewMovieCreate from './components/view-movie-create/view-movie-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewListings from './components/view-listings/view-listings';
 import ViewListing from './components/view-listing/view-listing';
-import ViewYourListings from './components/view-yourlistings/view-yourlistings'
+import ViewYourListings from './components/view-yourlistings/view-yourlistings';
+import ViewListingEdit from './components/view-listing-edit/view-listing-edit'
 
 global.jQuery = require('jquery');
 require('bootstrap');
@@ -47,7 +48,8 @@ let app = angular.module('app', [
     ViewMovieEdit.name,
     ViewMovieCreate.name,
     ViewLogin.name,
-    ViewYourListings.name
+    ViewYourListings.name,
+    ViewListingEdit.name
 ]);
 
 app.filter('compareUsers',function(listing
