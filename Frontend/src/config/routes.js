@@ -7,7 +7,7 @@ import ViewListingCreateComponent from './../components/view-listing-create/view
 import ViewListingsComponent from './../components/view-listings/view-listings.component';
 import ViewListingComponent from './../components/view-listing/view-listing.component';
 import ViewYourListingsComponent from './../components/view-yourlistings/view-yourlistings.component';
-import ViewListingEdit from './../components/view-listing-edit/view-listing-edit.component';
+import ViewListingEditComponent from './../components/view-listing-edit/view-listing-edit.component';
 
 import ListingsService from './../services/listings/listings.service';
 
@@ -70,7 +70,7 @@ export default function config ($stateProvider, $urlRouterProvider){
 
         .state('viewListingEdit',{
             url:'viewListingEdit/:listingId',
-            component: ViewListingEdit.name,
+            component: ViewListingEditComponent.name,
             resolve:{
                 listing: resolveListing
             }

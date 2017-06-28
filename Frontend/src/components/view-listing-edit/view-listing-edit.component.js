@@ -31,6 +31,7 @@ class ViewListingEditComponentController{
         //Clone the Movie Data
         this.model = JSON.parse(JSON.stringify(this.listing))
     }
+
     cancel() {
         this.model = JSON.parse(JSON.stringify(this.listing));
         this.$state.go('viewYourListings',{});
