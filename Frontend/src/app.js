@@ -24,6 +24,7 @@ import ViewMovie from './components/view-movie/view-movie';
 import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
 import ViewMovieCreate from './components/view-movie-create/view-movie-create';
 import ViewLogin from './components/view-login/view-login';
+import ViewRegister from './components/view-register/view-register';
 import ViewListings from './components/view-listings/view-listings';
 import ViewListing from './components/view-listing/view-listing';
 import ViewYourListings from './components/view-yourlistings/view-yourlistings';
@@ -48,6 +49,7 @@ let app = angular.module('app', [
     ViewMovieEdit.name,
     ViewMovieCreate.name,
     ViewLogin.name,
+    ViewRegister.name,
     ViewYourListings.name,
     ViewListingEdit.name
 ]);

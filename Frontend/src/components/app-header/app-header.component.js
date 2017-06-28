@@ -64,6 +64,10 @@ class AppHeaderComponentController{
         this.$state.go('login',{});
     }
 
+    register(){
+        this.$state.go('register',{});
+    }
+
     logout(){
         this.UserService.logout();
         this.$state.go('index',{});

@@ -2,6 +2,7 @@
 
 import ViewIndexComponent from './../components/view-index/view-index.component';
 import LoginComponent from './../components/view-login/view-login.component';
+import RegisterComponent from './../components/view-register/view-register.component';
 import ViewListingCreateComponent from './../components/view-listing-create/view-listing-create.component';
 import ViewListingsComponent from './../components/view-listings/view-listings.component';
 import ViewListingComponent from './../components/view-listing/view-listing.component';
@@ -41,6 +42,10 @@ export default function config ($stateProvider, $urlRouterProvider){
         .state('login', {
             url: '/login',
             component: LoginComponent.name,
+        })
+        .state('register', {
+            url: '/register',
+            component: RegisterComponent.name,
         })
         .state('listing', {
             url: '/listing/:listingId',
