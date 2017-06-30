@@ -8,6 +8,7 @@ import ViewListingsComponent from './../components/view-listings/view-listings.c
 import ViewListingComponent from './../components/view-listing/view-listing.component';
 import ViewYourListingsComponent from './../components/view-yourlistings/view-yourlistings.component';
 import ViewListingEditComponent from './../components/view-listing-edit/view-listing-edit.component';
+import ViewListingsSseComponent from './../components/view-listings-sse/view-listings-sse.component';
 
 import ListingsService from './../services/listings/listings.service';
 
@@ -69,11 +70,17 @@ export default function config ($stateProvider, $urlRouterProvider){
         })
 
         .state('viewListingEdit',{
-            url:'viewListingEdit/:listingId',
+            url:'/viewListingEdit/:listingId',
             component: ViewListingEditComponent.name,
             resolve:{
                 listing: resolveListing
             }
+        })
+        .state('viewListingsSse', {
+            url: '/viewListingsSponsorSeekers',
+            component: ViewListingsSseComponent.name,
+            resolve:{
+                listings: resolveListings}
         })
 }
 

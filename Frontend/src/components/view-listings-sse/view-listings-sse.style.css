@@ -1,0 +1,17 @@
+md-list {
+    margin-top: auto;
+}
+h1 {
+    margin-top: 75px;
+}
+
+.panel-info{
+    width: inherit;
+    border-color: black;
+
+}
+.panel-info>.panel-heading {
+    background-color: #444444;
+    border-color: black;
+    color: #fafafa;
+}

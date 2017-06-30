@@ -29,6 +29,7 @@ import ViewListings from './components/view-listings/view-listings';
 import ViewListing from './components/view-listing/view-listing';
 import ViewYourListings from './components/view-yourlistings/view-yourlistings';
 import ViewListingEdit from './components/view-listing-edit/view-listing-edit';
+import ViewListingsSse from './components/view-listings-sse/view-listings-sse';
 
 global.jQuery = require('jquery');
 require('bootstrap');
@@ -52,6 +53,7 @@ let app = angular.module('app', [
     ViewRegister.name,
     ViewYourListings.name,
     ViewListingEdit.name,
+    ViewListingsSse.name,
 ]);
 
 app.filter('compareUsers',function(listing
