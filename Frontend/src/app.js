@@ -19,10 +19,6 @@ import ViewIndex from './components/view-index/view-index';
 import ViewListingCreate from './components/view-listing-create/view-listing-create';
 
 
-import ViewMovies from './components/view-movies/view-movies';
-import ViewMovie from './components/view-movie/view-movie';
-import ViewMovieEdit from './components/view-movie-edit/view-movie-edit';
-import ViewMovieCreate from './components/view-movie-create/view-movie-create';
 import ViewLogin from './components/view-login/view-login';
 import ViewRegister from './components/view-register/view-register';
 import ViewListings from './components/view-listings/view-listings';
@@ -30,6 +26,8 @@ import ViewListing from './components/view-listing/view-listing';
 import ViewYourListings from './components/view-yourlistings/view-yourlistings';
 import ViewListingEdit from './components/view-listing-edit/view-listing-edit';
 import ViewListingsSse from './components/view-listings-sse/view-listings-sse';
+import ViewLegalAdvice from  './components/view-legal-advice/view-legal-advice';
+import ViewTutorial from './components/view-tutorial/view-tutorial';
 
 global.jQuery = require('jquery');
 require('bootstrap');
@@ -45,15 +43,13 @@ let app = angular.module('app', [
 	ViewListingCreate.name,
 	ViewListings.name,
     ViewListing.name,
-    ViewMovies.name,
-    ViewMovie.name,
-    ViewMovieEdit.name,
-    ViewMovieCreate.name,
     ViewLogin.name,
     ViewRegister.name,
     ViewYourListings.name,
     ViewListingEdit.name,
     ViewListingsSse.name,
+    ViewLegalAdvice.name,
+    ViewTutorial.name,
 ]);
 
 app.filter('compareUsers',function(listing

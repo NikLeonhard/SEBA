@@ -9,6 +9,8 @@ import ViewListingComponent from './../components/view-listing/view-listing.comp
 import ViewYourListingsComponent from './../components/view-yourlistings/view-yourlistings.component';
 import ViewListingEditComponent from './../components/view-listing-edit/view-listing-edit.component';
 import ViewListingsSseComponent from './../components/view-listings-sse/view-listings-sse.component';
+import ViewLegalAdviceComponent from './../components/view-legal-advice/view-legal-advice.component';
+import ViewTutorialComponent from './../components/view-tutorial/view-tutorial.component';
 
 import ListingsService from './../services/listings/listings.service';
 
@@ -81,6 +83,15 @@ export default function config ($stateProvider, $urlRouterProvider){
             component: ViewListingsSseComponent.name,
             resolve:{
                 listings: resolveListings}
+        })
+        .state('viewLegalAdvice',{
+            url: '/viewLegalAdvice',
+            component: ViewLegalAdviceComponent.name,
+        })
+
+        .state('viewTutorial',{
+            url: '/viewTutorial',
+            component: ViewTutorialComponent.name,
         })
 }
 

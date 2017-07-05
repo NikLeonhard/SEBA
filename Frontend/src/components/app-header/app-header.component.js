@@ -81,6 +81,14 @@ class AppHeaderComponentController{
         this.$state.go('viewListingsSse',{});
     }
 
+    viewLegalAdvice(){
+        this.$state.go('viewLegalAdvice',{});
+    }
+
+    viewTutorial(){
+        this.$state.go('viewTutorial',[]);
+    }
+
     static get $inject(){
         return ['$state', UserService.name];
     }
