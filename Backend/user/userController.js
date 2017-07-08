@@ -14,6 +14,7 @@ module.exports.get = function(req, res){
 
 module.exports.login = function(req, res){
 
+    console.log("login() reached");
     if(!req.body.username){
         res.status(400).send('username required');
         return;
@@ -37,12 +38,12 @@ module.exports.login = function(req, res){
         user.comparePassword(req.body.password, function(err, isMatch) {
             if(!isMatch || err){
                 res.status(401).send('Invalid Credentials');
+                console.log("Failed to log in.");
                 return;
             }
+            console.log("Logged in.");
+            res.status(200).json({token: createToken(user)});
         });
-
-        console.log("Logged in.");
-        res.status(200).json({token: createToken(user)});
     });
 
 };
