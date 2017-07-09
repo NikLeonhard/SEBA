@@ -7,6 +7,7 @@ import angularMaterial from 'angular-material';
 import 'angular-material/angular-material.css';
 
 import ngMdIcons from 'angular-material-icons';
+import ngMessages from 'angular-messages';
 
 import ListingService from './services/listings/listings';
 import UserService from './services/user/user';
@@ -33,6 +34,7 @@ global.jQuery = require('jquery');
 require('bootstrap');
 
 let app = angular.module('app', [
+    ngMessages,
     uiRouter,
     angularMaterial,
     ngMdIcons,

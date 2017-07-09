@@ -1,7 +1,10 @@
-.login-form md-card {
+.login-form md-card { /*TODO: is this doing anything?*/
     padding: 0 !important;
     margin-top: 100px;
 }
-.login-form md-card md-card-title {
+.login-form md-card md-card-title { /*TODO: is this doing anything?*/
     background-color: blue;
+}
+.login-form .error-msg {
+    color: rgb(221,44,0);
 }

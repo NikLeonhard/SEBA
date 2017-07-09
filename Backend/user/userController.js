@@ -13,8 +13,7 @@ module.exports.get = function(req, res){
 }
 
 module.exports.login = function(req, res){
-
-    console.log("login() reached");
+    
     if(!req.body.username){
         res.status(400).send('username required');
         return;

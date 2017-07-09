@@ -28,15 +28,32 @@ class ViewLoginComponentController{
 
     $onInit() {
         this.login = {};
+        this.invalidCredentials = false;
     }
 
-    submit(){
+    submit() {
         let user = this.login.username;
         let password = this.login.password;
 
+        // remove focus (e.g. from input field)
+        document.activeElement.blur();
+
         this.UserService.login(user,password).then(()=> {
+            this.invalidCredentials = true;
             this.$state.go('index',{});
+        }, response => {
+            if (response.status === 401) {
+                this.invalidCredentials = true;
+                this.clearInputs();
+            }
         });
+    }
+
+    /*reset input form*/
+    clearInputs() {
+        this.login = {};
+        this.loginForm.$setPristine();
+        this.loginForm.$setUntouched();
     }
 
     static get $inject(){

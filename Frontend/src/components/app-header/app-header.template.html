@@ -55,43 +55,7 @@
                     </md-menu-content>
                 </md-menu>
 			</div>
-			<!--<div class="nav navbar-right">
-				<md-menu>
-					<md-button aria-label="More" class="md-icon-button" ng-click="$ctrl.openMenu($mdMenu, $event)">
-						<md-icon><ng-md-icon icon="more_vert" ></ng-md-icon></md-icon>
-					</md-button>
-					<md-menu-content ng-if="$ctrl.isAuthenticated()" width="3" ng-mouseleave="$mdMenu.close()">
-						<md-menu-item>
-							<md-button>
-								<md-icon md-menu-align-target><ng-md-icon icon="account_circle" ></ng-md-icon></md-icon>
-								{{$ctrl.getCurrentUser()}}
-							</md-button>
-						</md-menu-item>
-						<md-menu-divider></md-menu-divider>
-						<md-menu-item>
-							<md-button ng-click="$ctrl.logout($event)">
-								<md-icon md-menu-align-target><ng-md-icon icon="logout" ></ng-md-icon></md-icon>
-								Logout
-							</md-button>
-						</md-menu-item>
-					</md-menu-content>
-					<md-menu-content ng-if="!$ctrl.isAuthenticated()" width="3" ng-mouseleave="$mdMenu.close()">
-						<md-menu-item>
-							<md-button ng-click="$ctrl.login($event)">
-								<md-icon md-menu-align-target><ng-md-icon icon="login" ></ng-md-icon></md-icon>
-								Login
-							</md-button>
-						</md-menu-item>
-						<md-menu-divider></md-menu-divider>
-						<md-menu-item>
-							<md-button ng-click="$ctrl.register($event)">
-								<md-icon md-menu-align-target><ng-md-icon icon="register" ></ng-md-icon></md-icon>
-								Register
-							</md-button>
-						</md-menu-item>
-					</md-menu-content>
-				</md-menu>
-			</div>-->
+
 			<ul class="nav navbar-form navbar-right">
 				<li ng-if="$ctrl.isAuthenticated()">
 					Logged in as {{$ctrl.getCurrentUser()}}
