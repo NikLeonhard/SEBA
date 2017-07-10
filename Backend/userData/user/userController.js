@@ -1,4 +1,4 @@
-var Config = require('../config/config.js');
+var Config = require('../../config/config.js');
 var User = require('./userSchema');
 var jwt = require('jwt-simple');
 
@@ -10,6 +10,11 @@ module.exports.get = function(req, res){
         }
         res.json(users);
     });
+}
+
+module.exports.updateUser = function(req, res) {
+    // TODO: implement for editing a user
+    console.warn("updateUser function not implemented");
 }
 
 module.exports.login = function(req, res){
@@ -48,26 +53,13 @@ module.exports.login = function(req, res){
 };
 
 module.exports.signup = function(req, res){
-    if(!req.body.username){
-        res.status(400).send('username required');
-        return;
-    }
-    if(!req.body.password){
-        res.status(400).send('password required');
-        return;
-    }
-
-    var user = new User();
-
-    user.username = req.body.username;
-    user.password = req.body.password;
+    var user = new User(req.body);
 
     user.save(function(err) {
         if (err) {
-            res.status(500).send(err);
+            res.status(400).send(err);
             return;
         }
-
         res.status(201).json({token: createToken(user)});
     });
 };

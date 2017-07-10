@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
+var address = require('../resources/address');
+
+var AddressSchema = new mongoose.Schema(address)
 
 var userSchema = mongoose.Schema({
     username: {
@@ -9,6 +12,22 @@ var userSchema = mongoose.Schema({
     },
     password: {
         type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    prename: {
+        type: String,
+        required: true
+    },
+    dateOfBirth: {
+        type: Date,
+        required: true
+    },
+    address: {
+        type: AddressSchema,
         required: true
     }
 });
