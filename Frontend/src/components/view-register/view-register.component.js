@@ -32,10 +32,13 @@ class ViewRegisterComponentController{
 
     submit(){
         // TODO
-        /*let user = this.login.username;
+        let user = this.login.username;
         let password = this.login.password;
 
-        this.UserService.login(user,password).then(()=> {
+         // remove focus (e.g. from input field)
+         document.activeElement.blur();
+
+        /*this.UserService.login(user,password).then(()=> {
             this.$state.go('index',{});
         });*/
     }
