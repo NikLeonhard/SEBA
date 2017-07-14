@@ -1,8 +1,7 @@
-/*TODO*/
-/*.login-form md-card {*/
-    /*padding: 0 !important;*/
-    /*margin-top: 100px;*/
-/*}*/
-/*.login-form md-card md-card-title {*/
-    /*background-color: blue;*/
-/*}*/
+.registration-form md-card {
+    padding: 0 !important;
+    margin-top: 100px;
+}
+.registration-form md-card md-card-title md-card-content {
+    background-color: blue;
+}
