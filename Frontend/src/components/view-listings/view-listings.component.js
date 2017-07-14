@@ -73,12 +73,12 @@ class ViewListingsComponentController{
     }
 
     queryZipCode(zipCode, listing) {
+        //So gehts, sobald ich aber mit dem zipCode was machen will kackts ab. Wenn ich statt zipCode zb. input übergebe gehts. Liegt also wohl an zipCode, dass aus meiner Sicht aber vom Verhalten genau wie input sein sollte
+        return true;
+        /**if(zipCode.toString().length ==0)
+                return true;
 
-
-        if(zipCode.toString().length ==0)
-        //return true;
-            return true;
-        //    return(listing.postcode.equals(zipCode.toString()))
+        return(listing.postcode.equals(zipCode.toString()))**/
 
     }
 
