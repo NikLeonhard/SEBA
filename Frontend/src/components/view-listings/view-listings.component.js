@@ -10,81 +10,80 @@ import './view-listings.style.css'
 
 class ViewListingsComponent{
 
-    constructor(){
-        this.controller = ViewListingsComponentController;
-        this.template = template;
-        this.bindings = {
-            listings: '<',
-        }
-    }
+	constructor(){
+		this.controller = ViewListingsComponentController;
+		this.template = template;
+		this.bindings = {
+			listings: '<',
+		}
+	}
 
-    static get name() {
-        return 'viewListings';
-    }
+	static get name() {
+		return 'viewListings';
+	}
 }
 
 class ViewListingsComponentController{
-    constructor($state,ListingsService,UserService){
-        this.$state = $state;
-        this.Listings = ListingsService;
-        this.UserService = UserService;
-    }
+	constructor($state,ListingsService,UserService){
+		this.$state = $state;
+		this.Listings = ListingsService;
+		this.UserService = UserService;
+	}
 
-    details (listing) {
-        let _id = listing['_id'];
-        this.$state.go('listing',{ listingId:_id});
-    };
+	details (listing) {
+		let _id = listing['_id'];
+		this.$state.go('listing',{ listingId:_id});
+	};
 
-    static get $inject(){
-        return ['$state', ListingsService.name, UserService.name];
-    }
+	static get $inject(){
+		return ['$state', ListingsService.name, UserService.name];
+	}
 
-    queryTitle(input, listing){
-    if(input.toString().length==0)
-        return true;
-    return(listing.title.includes(input.toString()));
-    }
+	queryTitle(input, listing){
+		if(typeof input == 'undefined' || input.toString().length==0)
+			return true;
 
-
-    queryRange(lowerEnd,upperEnd,listing){
+		return(listing.title.includes(input.toString()));
+	}
 
 
-        var lowerEndInt = parseInt(lowerEnd,10);
-        var upperEndInt = parseInt(upperEnd,10);
+	queryRange(lowerEnd,upperEnd,listing){
+		var lowerEndInt = parseInt(lowerEnd,10);
+		var upperEndInt = parseInt(upperEnd,10);
 
 
-        if(lowerEndInt.toString()=="NaN" && upperEndInt.toString()=="NaN") {
-            return true
-           }
+		if(lowerEndInt.toString()=="NaN" && upperEndInt.toString()=="NaN") {
+			return true
+		}
 
 
 
-        if(lowerEndInt==0 && upperEndInt==0) {
-            return true;
-        }
+		if(lowerEndInt==0 && upperEndInt==0) {
+			return true;
+		}
 
-        if(lowerEndInt>upperEndInt)
-            return (listing.amount>=upperEndInt && listing.amount<=lowerEndInt)
+		if(lowerEndInt>upperEndInt)
+			return (listing.amount>=upperEndInt && listing.amount<=lowerEndInt)
 
 
-        else {
-            return (listing.amount<=upperEndInt && listing.amount>=lowerEndInt)
-        }
-    }
+		else {
+			return (listing.amount<=upperEndInt && listing.amount>=lowerEndInt)
+		}
+	}
 
-    queryZipCode(zipCode, listing) {
-        //So gehts, sobald ich aber mit dem zipCode was machen will kackts ab. Wenn ich statt zipCode zb. input übergebe gehts. Liegt also wohl an zipCode, dass aus meiner Sicht aber vom Verhalten genau wie input sein soll
-        return true;
-        /**if(zipCode.toString().length ==0)
-                return true;
+	queryZipCode(zipCode, listing) {
+		if(typeof zipCode === 'undefined' || zipCode.toString().length ==0)
+			return true;
 
-        return(listing.postcode.equals(zipCode.toString()))**/
+		console.log(listing);
+		console.log(zipCode);
 
-    }
+		return listing.postcode == zipCode;
+	}
 
-    queryAll(input,lowerEnd,upperEnd,listing,zipCode){
-        return (this.queryTitle(input,listing) && this.queryRange(lowerEnd,upperEnd,listing)&& this.queryZipCode(zipCode,listing));
-    }
+	queryAll(input,lowerEnd,upperEnd,listing,zipCode){
+		return (this.queryTitle(input,listing) && this.queryRange(lowerEnd,upperEnd,listing)&& this.queryZipCode(zipCode,listing));
+	}
 
 
 }
