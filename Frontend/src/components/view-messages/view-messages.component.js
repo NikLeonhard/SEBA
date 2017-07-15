@@ -11,12 +11,12 @@ class ViewMessagesComponent{
 		this.controller = ViewMessagesComponentController;
 		this.template = template;
 		this.bindings = {
-			messages: 'm',
+			messages: '<',
 		}
 	}
 
 	static get name() {
-		return 'viewListings';
+		return 'viewMessages';
 	}
 }
 
