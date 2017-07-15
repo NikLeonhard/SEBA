@@ -75,9 +75,6 @@ class ViewListingsComponentController{
 		if(typeof zipCode === 'undefined' || zipCode.toString().length ==0)
 			return true;
 
-		console.log(listing);
-		console.log(zipCode);
-
 		return listing.postcode == zipCode;
 	}
 
