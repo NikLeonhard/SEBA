@@ -1,30 +1,84 @@
-<div layout="column" layout-padding="">
-    <!--TODO-->
-    <!--<span flex="20"></span>-->
-    <!--<md-content class="login-form" layout="row" flex="35">-->
-        <!--<span flex="35"></span>-->
-        <!--<md-card flex="30">-->
-            <!--<md-card-content>-->
-                <!--<form name="LoginForm">-->
-                    <!--<md-input-container class="md-block">-->
-                        <!--<label>Login</label>-->
-                        <!--<input type="text" name="username" ng-model="$ctrl.login.username" placeholder="login" required=""/>-->
-                        <!--<div ng-messages="LoginForm.username.$error" role="alert" multiple="">-->
-                            <!--<div ng-message="required">Please enter your username.</div>-->
-                        <!--</div>-->
-                    <!--</md-input-container>-->
-                    <!--<md-input-container class="md-block">-->
-                        <!--<label>Password</label>-->
-                        <!--<input type="password" name="password" ng-model="$ctrl.login.password" placeholder="password" required="" md-maxlength="64"/>-->
-                        <!--<div ng-messages="LoginForm.password.$error" role="alert" multiple="">-->
-                            <!--<div ng-message="required">Please enter your password.</div>-->
-                        <!--</div>-->
-                    <!--</md-input-container>-->
-                    <!--<md-button ng-disabled="!LoginForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Login &nbsp</md-button>-->
-                <!--</form>-->
-            <!--</md-card-content>-->
-        <!--</md-card>-->
-        <!--<span flex></span>-->
-    <!--</md-content>-->
-    <!--<span flex></span>-->
+<div layout="column" layout-padding="" style="vertical-align: top">
+    <!--TODO: Input validation (e.g. phone number, postcode?(only germany?))-->
+    <span flex="20"></span>
+    <md-content class="registration-form" layout="row" flex="35">
+        <span flex="35"></span>
+        <md-card flex="30">
+            <md-card-content>
+                <form name="$ctrl.registrationForm">
+                    <div layout="row">
+                        <md-input-container class="md-block">
+                            <label>First Name</label>
+                            <input type="text" name="firstName" ng-model="$ctrl.registration.firstName" required/>
+                            <div ng-messages="$ctrl.registrationForm.firstName.$error" role="alert">
+                                <div ng-message="required">Please enter a first name.</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Last Name</label>
+                            <input type="text" name="lastName" ng-model="$ctrl.registration.lastName" required/>
+                            <div ng-messages="$ctrl.registrationForm.lastName.$error" role="alert">
+                                <div ng-message="required">Please enter a last name.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block">
+                            <label>Street</label>
+                            <input type="text" name="street" ng-model="$ctrl.registration.street"/>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Nr.</label>
+                            <input type="text" name="streetNumber" ng-model="$ctrl.registration.streetNumber"/>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block">
+                            <label>Postcode</label>
+                            <input type="text" name="postcode" ng-model="$ctrl.registration.postcode"/>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>City</label>
+                            <input type="text" name="city" ng-model="$ctrl.registration.city"/>
+                        </md-input-container>
+                    </div>
+                    <md-input-container class="md-block">
+                        <label>Email</label>
+                        <input type="email" name="username" ng-model="$ctrl.registration.email"
+                               ng-pattern="/^.+@.+\..+$/" required/>
+                        <div ng-messages="$ctrl.registrationForm.username.$error" role="alert">
+                            <div ng-message-exp="['required','pattern']">Please enter a valid email address.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Phone Number</label>
+                        <input type="text" name="phoneNumber" ng-model="$ctrl.registration.phoneNumber"
+                               ng-pattern="/^\d+[\s]?\d+$/" minlength="7" maxlength="15"/>
+                        <div ng-messages="$ctrl.registrationForm.phoneNumber.$error" role="alert">
+                            <div ng-message="pattern">Please enter a valid phone number.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Username</label>
+                        <input type="text" name="username" ng-model="$ctrl.registration.username" required/>
+                        <div ng-messages="$ctrl.registrationForm.username.$error" role="alert">
+                            <div ng-message="required">Please enter a username.</div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Password</label>
+                        <!--TODO: why 64 max?-->
+                        <input type="password" name="password" ng-model="$ctrl.registration.password" required md-maxlength="64"/>
+                        <!--TODO: what does the multiple directive?-->
+                        <div ng-messages="RegistrationForm.password.$error" role="alert" multiple="">
+                            <div ng-message="required">Please enter a password.</div>
+                        </div>
+                    </md-input-container>
+                    <md-button ng-disabled="!$ctrl.registrationForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Register &nbsp</md-button>
+                </form>
+            </md-card-content>
+        </md-card>
+        <span flex></span>
+    </md-content>
+    <span flex></span>
 </div>

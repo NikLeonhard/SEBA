@@ -26,13 +26,15 @@
     "webpack": "^1.13.1"
   },
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.0",
     "angular": "^1.5.8",
     "angular-animate": "^1.5.8",
     "angular-aria": "^1.5.8",
     "angular-material": "^1.1.0",
     "angular-material-icons": "^0.7.1",
     "angular-messages": "^1.5.8",
-    "@uirouter/angularjs": "^1.0.0"
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
   },
   "engines": {
     "node": ">=4.3"

@@ -1,6 +1,6 @@
 var JwtStrategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
-var User = require('../user/userSchema');
+var User = require('../userData/user/userSchema');
 var Config = require('../config/config');
 
 

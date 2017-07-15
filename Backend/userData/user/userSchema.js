@@ -1,6 +1,10 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
+var address = require('../resources/address');
 
+var AddressSchema = new mongoose.Schema(address)
+
+// TODO: add email, phone number, dateOfRegistration? and change name and prename to first name and last name?
 var userSchema = mongoose.Schema({
     username: {
         type: String,
@@ -10,6 +14,26 @@ var userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    // dateOfBirth: {
+    //     type: Date,
+    //     required: true
+    // },
+    address: {
+        type: AddressSchema,
+        required: false
     }
 });
 
