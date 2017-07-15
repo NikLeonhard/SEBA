@@ -28,6 +28,17 @@ export default class ListingsService {
         })
     }
 
+    update(listing) {
+        let url = this.resourceUrl;
+        return this.$http.put(url,listing).then(response => {
+
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            });
+
+        })
+    }
+
     list() {
 
         let url = this.resourceUrl;
@@ -63,16 +74,6 @@ export default class ListingsService {
         })
     }
 
-    save(listing) {
-        let url = this.resourceUrl;
-        return this.$http.put(url,listing).then(response => {
-
-            return new Promise((resolve, reject) => {
-                resolve(response.data);
-            });
-
-        })
-    }
 }
 
 
