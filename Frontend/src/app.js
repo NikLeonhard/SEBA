@@ -29,6 +29,7 @@ import ViewListingEdit from './components/view-listing-edit/view-listing-edit';
 import ViewListingsSse from './components/view-listings-sse/view-listings-sse';
 import ViewLegalAdvice from  './components/view-legal-advice/view-legal-advice';
 import ViewTutorial from './components/view-tutorial/view-tutorial';
+import ViewMessages from './components/view-messages/view-messages';
 
 global.jQuery = require('jquery');
 require('bootstrap');
@@ -52,6 +53,7 @@ let app = angular.module('app', [
     ViewListingsSse.name,
     ViewLegalAdvice.name,
     ViewTutorial.name,
+	ViewMessages.name
 ]);
 
 app.filter('compareUsers',function(listing
