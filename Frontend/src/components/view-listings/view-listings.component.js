@@ -75,7 +75,7 @@ class ViewListingsComponentController{
 		if(typeof zipCode === 'undefined' || zipCode.toString().length ==0)
 			return true;
 
-		return listing.postcode == zipCode;
+		return listing.postcode.includes(zipCode);
 	}
 
 	queryAll(input,lowerEnd,upperEnd,listing,zipCode){
