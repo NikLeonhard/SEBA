@@ -38,6 +38,55 @@ class ViewListingsComponentController{
     static get $inject(){
         return ['$state', ListingsService.name, UserService.name];
     }
+
+    queryTitle(input, listing){
+    if(input.toString().length==0)
+        return true;
+    return(listing.title.includes(input.toString()));
+    }
+
+
+    queryRange(lowerEnd,upperEnd,listing){
+
+
+        var lowerEndInt = parseInt(lowerEnd,10);
+        var upperEndInt = parseInt(upperEnd,10);
+
+
+        if(lowerEndInt.toString()=="NaN" && upperEndInt.toString()=="NaN") {
+            return true
+           }
+
+
+
+        if(lowerEndInt==0 && upperEndInt==0) {
+            return true;
+        }
+
+        if(lowerEndInt>upperEndInt)
+            return (listing.amount>=upperEndInt && listing.amount<=lowerEndInt)
+
+
+        else {
+            return (listing.amount<=upperEndInt && listing.amount>=lowerEndInt)
+        }
+    }
+
+    queryZipCode(zipCode, listing) {
+        //So gehts, sobald ich aber mit dem zipCode was machen will kackts ab. Wenn ich statt zipCode zb. input übergebe gehts. Liegt also wohl an zipCode, dass aus meiner Sicht aber vom Verhalten genau wie input sein soll
+        return true;
+        /**if(zipCode.toString().length ==0)
+                return true;
+
+        return(listing.postcode.equals(zipCode.toString()))**/
+
+    }
+
+    queryAll(input,lowerEnd,upperEnd,listing,zipCode){
+        return (this.queryTitle(input,listing) && this.queryRange(lowerEnd,upperEnd,listing)&& this.queryZipCode(zipCode,listing));
+    }
+
+
 }
 
 export default ViewListingsComponent;

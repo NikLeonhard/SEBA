@@ -4,7 +4,7 @@
 
 import angular from 'angular';
 
-import ViewListingsSseComponent from './view-listings-Sse.component';
+import ViewListingsSseComponent from './view-listings-sse.component';
 
 export default angular.module('ViewListingsSse', [])
     .component(ViewListingsSseComponent.name, new ViewListingsSseComponent);
