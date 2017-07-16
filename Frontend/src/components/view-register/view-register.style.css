@@ -1,13 +1,6 @@
-/*TODO: remove after merge with refactor branch?*/
-.registration-form md-card {
-    padding: 0 !important;
-    margin-top: 100px;
-}
-.registration-form md-card md-card-title md-card-content {
-    background-color: blue;
-}
-
-/*TODO: move to app-content css*/
-.registration-form .error-msg {
-    color: rgb(221,44,0);
+.registration-container {
+    vertical-align: top;
+    margin:0 auto;
+    max-width: 650px;
+    width:100%
 }

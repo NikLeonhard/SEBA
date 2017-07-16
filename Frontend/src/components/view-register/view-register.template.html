@@ -1,4 +1,4 @@
-<div class="layout-padding" layout="column" style="vertical-align: top">
+<div class="layout-padding registration-container" layout="column">
     <!--TODO: Input validation (e.g. phone number, postcode?(only germany?))-->
     <md-content class="registration-form form-outline">
         <h1 class="form-title"> Create User Account </h1>
@@ -91,10 +91,8 @@
                     </div>
                     <md-button ng-disabled="!$ctrl.registrationForm.$valid" ng-click="$ctrl.submit()"
                                class="md-raised md-primary">&nbsp Register &nbsp</md-button>
-                </form>
-            </md-card-content>
-        </md-card>
-        <span flex></span>
+                </md-card-content>
+            </md-card>
+        </form>
     </md-content>
-    <span flex></span>
 </div>

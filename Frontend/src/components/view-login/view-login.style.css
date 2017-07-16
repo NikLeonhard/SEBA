@@ -1,9 +1,6 @@
 .login-form md-card md-card-title {
     background-color: blue;
 }
-.login-form .error-msg {
-    color: rgb(221,44,0);
-}
 
 .login-form {
     /*max-width: 300px;*/

@@ -17,3 +17,7 @@ md-content {
 .listing-details-background, .form-background {
     background-color: rgb(249, 249, 248);
 }
+
+.error-msg {
+    color: rgb(221,44,0);
+}
