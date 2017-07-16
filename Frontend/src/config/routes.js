@@ -39,6 +39,7 @@ function resolveMessages(messageService){
 resolveMessage.$inject = ['$stateParams', MessageService.name];
 function resolveMessage($stateParams,messageService){
     return messageService.get($stateParams.messageId);
+}
 
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
