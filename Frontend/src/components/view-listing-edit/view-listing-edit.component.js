@@ -37,7 +37,7 @@ class ViewListingEditComponentController{
         this.ListingsService.update(this.listing).then(data => {
             this.listing = JSON.parse(JSON.stringify(data));
 
-            this.$state.go('viewYourListings',{});
+            this.$state.go('listing',{ listingId:_id });
         });
 
     };

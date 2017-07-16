@@ -1,3 +1,4 @@
+
 <div layout="column" layout-padding>
     <md-content class="md-no-momentum form-outline">
         <h1 class="form-title"> {{$ctrl.listing.title}} </h1>
@@ -20,16 +21,15 @@
                         <input ng-model="$ctrl.listing.postcode" type="text" required>
                     </md-input-container>
 
-                    <div class="form-group">
-                        <label for="sel1">Listing Type:</label>
-                        <md-input-container class="md-icon-float md-block">
-                            <select class="form-control" id="sel1" ng-model="$ctrl.listing.type" required>
-                                <option value="" disabled selected>Select Listing Type</option>
-                                <option>Sponsor Offer</option>
-                                <option>Sponsor Seeking</option>
-                            </select>
-                        </md-input-container>
-                    </div>
+            <div class="form-group">
+                <label for="sel1">Listing Type:</label>
+                <md-input-container class="md-icon-float md-block">
+                    <md-select class="md-no-underline" id="sel1" ng-model="$ctrl.listing.type" required>
+                        <md-option>Sponsor Offer</md-option>
+                        <md-option>Sponsor Seeking</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
 
                     <md-input-container class="md-block">
                         <label>Description</label>

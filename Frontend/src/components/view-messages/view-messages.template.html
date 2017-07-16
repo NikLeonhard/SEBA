@@ -1,0 +1,20 @@
+<div layout="column" layout-padding>
+    <md-content class="md-no-momentum">
+        <h1> {{$ctrl.message.username}} </h1>
+        <br/>
+        <form name="listingForm">
+            <md-input-container class="md-icon-float md-block">
+                <label>Message</label>
+                <md-icon><ng-md-icon icon="message" ></ng-md-icon></md-icon>
+                <input ng-model="$ctrl.message.content" type="text" required>
+            </md-input-container>
+
+            <div layout="row">
+                <span flex></span>
+                <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()" ng-disabled="">Send</md-button>
+            </div>
+
+        </form>
+    </md-content>
+
+</div>

@@ -89,6 +89,10 @@ class AppHeaderComponentController{
         this.$state.go('viewTutorial',[]);
     }
 
+    viewMessages(){
+        this.$state.go('viewMessages',[]);
+    }
+
     static get $inject(){
         return ['$state', UserService.name];
     }
