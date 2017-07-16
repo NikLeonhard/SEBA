@@ -17,6 +17,7 @@ module.exports = {
         path: path.resolve(__dirname,'dist'),
         filename: 'scripts/[name].js'
     },
+    watch: true,
     module: {
         loaders: [
             {
