@@ -29,7 +29,7 @@ export default class ListingsService {
     }
 
     update(listing) {
-        let url = this.resourceUrl;
+        let url = `${ this.resourceUrl }${ listing['_id'] }`;
         return this.$http.put(url,listing).then(response => {
 
             return new Promise((resolve, reject) => {
