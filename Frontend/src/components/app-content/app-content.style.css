@@ -27,3 +27,7 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.form-background md-card-content {
+    padding-top: 25px;
+}
