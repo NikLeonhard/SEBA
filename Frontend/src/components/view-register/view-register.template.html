@@ -5,86 +5,88 @@
         <form name="$ctrl.registrationForm">
             <md-card class="form-background">
                 <md-card-content>
-                    <div layout="row" layout-align="space-around">
-                        <md-input-container class="md-block">
-                            <label>First Name</label>
-                            <input type="text" name="firstName" ng-model="$ctrl.registration.firstName" required/>
-                            <div ng-messages="$ctrl.registrationForm.firstName.$error" role="alert">
-                                <div ng-message="required">Please enter a first name.</div>
-                            </div>
-                        </md-input-container>
-                        <md-input-container class="md-block">
-                            <label>Last Name</label>
-                            <input type="text" name="lastName" ng-model="$ctrl.registration.lastName" required/>
-                            <div ng-messages="$ctrl.registrationForm.lastName.$error" role="alert">
-                                <div ng-message="required">Please enter a last name.</div>
-                            </div>
-                        </md-input-container>
-                    </div>
-                    <div layout="row" layout-align="space-around">
-                        <md-input-container class="md-block">
-                            <label>Street</label>
-                            <input type="text" name="street" ng-model="$ctrl.registration.street"/>
-                        </md-input-container>
-                        <md-input-container class="md-block">
-                            <label>Nr.</label>
-                            <input type="text" name="streetNumber" ng-model="$ctrl.registration.streetNumber"/>
-                        </md-input-container>
-                    </div>
-                    <div layout="row" layout-align="space-around">
-                        <md-input-container class="md-block">
-                            <label>Postcode</label>
-                            <input type="text" name="postcode" ng-model="$ctrl.registration.postcode"/>
-                        </md-input-container>
-                        <md-input-container class="md-block">
-                            <label>City</label>
-                            <input type="text" name="city" ng-model="$ctrl.registration.city"/>
-                        </md-input-container>
-                    </div>
-                    <md-input-container class="md-block">
-                        <label>Email</label>
-                        <input type="email" name="email" ng-model="$ctrl.registration.email"
-                               ng-pattern="/^.+@.+\..+$/" required/>
-                        <div ng-messages="$ctrl.registrationForm.username.$error" role="alert">
-                            <div ng-message-exp="['required','pattern']">Please enter a valid email address.</div>
+                    <div layout="column" layout-align="space-around">
+                        <div class="registration-input-group" layout="row" layout-align="space-between">
+                            <md-input-container class="md-block">
+                                <label>First Name</label>
+                                <input type="text" name="firstName" ng-model="$ctrl.registration.firstName" required/>
+                                <div ng-messages="$ctrl.registrationForm.firstName.$error" role="alert">
+                                    <div ng-message="required">Please enter a first name.</div>
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Last Name</label>
+                                <input type="text" name="lastName" ng-model="$ctrl.registration.lastName" required/>
+                                <div ng-messages="$ctrl.registrationForm.lastName.$error" role="alert">
+                                    <div ng-message="required">Please enter a last name.</div>
+                                </div>
+                            </md-input-container>
                         </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Phone Number</label>
-                        <input type="text" name="phoneNumber" ng-model="$ctrl.registration.phoneNumber"
-                               ng-pattern="/^\d+[\s]?\d+$/" minlength="7" maxlength="15"/>
-                        <div ng-messages="$ctrl.registrationForm.phoneNumber.$error" role="alert">
-                            <div ng-message="pattern">Please enter a valid phone number.</div>
+                        <div class="registration-input-group" layout="row" layout-align="space-between">
+                            <md-input-container class="md-block">
+                                <label>Street</label>
+                                <input type="text" name="street" ng-model="$ctrl.registration.street"/>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Nr.</label>
+                                <input type="text" name="streetNumber" ng-model="$ctrl.registration.streetNumber"/>
+                            </md-input-container>
                         </div>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Username</label>
-                        <input type="text" name="username" ng-model="$ctrl.registration.username" required/>
-                        <div ng-messages="$ctrl.registrationForm.username.$error" role="alert">
-                            <div ng-message="required">Please enter a username.</div>
+                        <div class="registration-input-group" layout="row" layout-align="space-between">
+                            <md-input-container class="md-block">
+                                <label>Postcode</label>
+                                <input type="text" name="postcode" ng-model="$ctrl.registration.postcode"/>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>City</label>
+                                <input type="text" name="city" ng-model="$ctrl.registration.city"/>
+                            </md-input-container>
                         </div>
-                    </md-input-container>
-                    <div name="passwordFields" layout="column">
-                        <md-input-container class="md-block">
-                            <label>Password</label>
-                            <input type="password" name="password" ng-model="$ctrl.registration.password"
-                                   equals="{{passwordConfirmation}}" required/>
-                            <div ng-messages="$ctrl.registrationForm.password.$error" role="alert">
-                                <div ng-message="equals">Passwords do not match.</div>
-                                <div ng-message="required">Please enter a password.</div>
-                                <!--TODO-->
-                                <!--<div ng-message="minlength">Your password should have at least 8 characters.</div>-->
+                        <md-input-container class="md-block registration-input">
+                            <label>Email</label>
+                            <input type="email" name="email" ng-model="$ctrl.registration.email"
+                                   ng-pattern="/^.+@.+\..+$/" required/>
+                            <div ng-messages="$ctrl.registrationForm.username.$error" role="alert">
+                                <div ng-message-exp="['required','pattern']">Please enter a valid email address.</div>
                             </div>
                         </md-input-container>
-                        <md-input-container class="md-block">
-                            <label>Confirm Password</label>
-                            <input type="password" name="passwordConfirm" ng-model="passwordConfirmation"
-                                   equals="{{$ctrl.registration.password}}" required/>
-                            <div ng-messages="$ctrl.registrationForm.passwordConfirm.$error" role="alert">
-                                <div ng-message="equals">Passwords do not match.</div>
-                                <div ng-message="required">Please confirm your password.</div>
+                        <md-input-container class="md-block registration-input">
+                            <label>Phone Number</label>
+                            <input type="text" name="phoneNumber" ng-model="$ctrl.registration.phoneNumber"
+                                   ng-pattern="/^\d+[\s]?\d+$/" minlength="7" maxlength="15"/>
+                            <div ng-messages="$ctrl.registrationForm.phoneNumber.$error" role="alert">
+                                <div ng-message="pattern">Please enter a valid phone number.</div>
                             </div>
                         </md-input-container>
+                        <md-input-container class="md-block registration-input">
+                            <label>Username</label>
+                            <input type="text" name="username" ng-model="$ctrl.registration.username" required/>
+                            <div ng-messages="$ctrl.registrationForm.username.$error" role="alert">
+                                <div ng-message="required">Please enter a username.</div>
+                            </div>
+                        </md-input-container>
+                        <div class="registration-input-group" name="passwordFields" layout="row" layout-align="space-between">
+                            <md-input-container class="md-block">
+                                <label>Password</label>
+                                <input type="password" name="password" ng-model="$ctrl.registration.password"
+                                       equals="{{passwordConfirmation}}" required/>
+                                <div ng-messages="$ctrl.registrationForm.password.$error" role="alert">
+                                    <div ng-message="equals">Passwords do not match.</div>
+                                    <div ng-message="required">Please enter a password.</div>
+                                    <!--TODO-->
+                                    <!--<div ng-message="minlength">Your password should have at least 8 characters.</div>-->
+                                </div>
+                            </md-input-container>
+                            <md-input-container class="md-block">
+                                <label>Confirm Password</label>
+                                <input type="password" name="passwordConfirm" ng-model="passwordConfirmation"
+                                       equals="{{$ctrl.registration.password}}" required/>
+                                <div ng-messages="$ctrl.registrationForm.passwordConfirm.$error" role="alert">
+                                    <div ng-message="equals">Passwords do not match.</div>
+                                    <div ng-message="required">Please confirm your password.</div>
+                                </div>
+                            </md-input-container>
+                        </div>
                     </div>
                     <div ng-show="$ctrl.usernameExists" role="alert">
                         <div class="error-msg">Username {{$ctrl.existingUsername}} already exists. Please try another one.</div>

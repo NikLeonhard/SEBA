@@ -3,6 +3,7 @@
 import template from './view-messages.template.html';
 import MessageService from './../../services/message/message.service';
 import UserService from './../../services/user/user.service';
+import './view-messages.style.css';
 
 class ViewMessagesComponent{
 
