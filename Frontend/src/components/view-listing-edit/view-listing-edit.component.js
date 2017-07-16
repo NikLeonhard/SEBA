@@ -40,7 +40,7 @@ class ViewListingEditComponentController{
     save() {
         let _id = this.listing['_id'];
 
-        this.ListingsService.update(this.model).then(data => {
+        this.ListingsService.update(this.listing).then(data => {
             this.listing = JSON.parse(JSON.stringify(data));
 
             this.$state.go('listing',{ listingId:_id });
@@ -51,9 +51,8 @@ class ViewListingEditComponentController{
     delete() {
         let _id = this.listing['_id'];
 
-        this.ListingsService.delete(_id).then(response => {
-            this.$state.go('',{});
-        });
+        this.ListingsService.delete(_id);
+        this.$state.go('viewYourListings',{});
     };
 
     static get $inject(){
