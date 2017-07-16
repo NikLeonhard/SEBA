@@ -16,7 +16,18 @@ export default class MessageService {
     static get name() {
         return 'messageService';
     }
-	
+
+    create(message) {
+        let url = this.resourceUrl;
+        return this.$http.post(url, message).then(response => {
+
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            });
+
+        })
+    }
+
     save(message) {
         let url = this.resourceUrl;
         return this.$http.post(url, message).then(response => {
@@ -27,6 +38,8 @@ export default class MessageService {
 
         })
     }
+
+
 
 
 	/*
