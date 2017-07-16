@@ -10,7 +10,7 @@ class ViewYourListingsComponent {
         this.controller = ViewYourListingsComponentController;
         this.template = template;
         this.bindings = {
-            listings: '<',
+            listings: '<'
         }
 
     }
@@ -25,9 +25,8 @@ class ViewYourListingsComponent {
 class ViewYourListingsComponentController{
     constructor($state,ListingsService,UserService){
         this.$state = $state;
-        this.Listings = ListingsService;
+        this.ListingService = ListingsService;
         this.UserService = UserService;
-
     }
 
     edit () {
@@ -37,7 +36,7 @@ class ViewYourListingsComponentController{
 
     delete(listing) {
             let _id = listing['_id'];
-            this.Listings.delete(_id).then(response => {
+            this.ListingService.delete(_id).then(response => {
             let index = this.listings.map(x => x['_id']).indexOf(_id);
             this.listings.splice(index, 1)});
         }

@@ -1,7 +1,18 @@
 footer {
-    max-height: 35px ;
+    height: 40px;
+    background-color: rgb(95, 158, 160);
+}
+
+footer > div {
+    height: 25px;
+    background-color: rgb(34, 34, 34);
+    position:fixed;
+    bottom:0;
+    width:100%;
 }
 
 footer > div > p {
     margin-top: 4px;
+    text-decoration-color: rgb(95, 158, 160);
+    color: rgb(95, 158, 160);
 }

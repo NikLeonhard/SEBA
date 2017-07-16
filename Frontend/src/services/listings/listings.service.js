@@ -63,8 +63,9 @@ export default class ListingsService {
         })
     }
 
-    save(listing) {
-        let url = this.resourceUrl;
+    update(listing) {
+        let url = `${ this.resourceUrl }${ listing["_id"] }`
+
         return this.$http.put(url,listing).then(response => {
 
             return new Promise((resolve, reject) => {

@@ -21,26 +21,20 @@ class ViewListingEditComponent {
 
 class ViewListingEditComponentController{
     constructor($state, ListingsService){
-        this.model = {};
         this.$state = $state;
         this.ListingsService = ListingsService;
     }
 
 
     $onInit() {
-        //Clone the Movie Data
-        this.model = JSON.parse(JSON.stringify(this.listing))
     }
 
     cancel() {
-        this.model = JSON.parse(JSON.stringify(this.listing));
         this.$state.go('viewYourListings',{});
     };
 
     save() {
-        let _id = this.listing['_id'];
-
-        this.ListingsService.update(this.model).then(data => {
+        this.ListingsService.update(this.listing).then(data => {
             this.listing = JSON.parse(JSON.stringify(data));
 
             this.$state.go('viewYourListings',{});

@@ -1,0 +1,19 @@
+.listing-page-title, .form-title {
+    padding-left: 20px;
+}
+
+.listing-title {
+    /*margin-bottom: 40px;*/
+}
+
+md-content {
+    background-color: rgb(218, 218, 218);
+}
+
+.form-outline, .outline {
+    background-color: rgb(247, 243, 243);
+  }
+
+.listing-details-background, .form-background {
+    background-color: rgb(249, 249, 248);
+}
