@@ -1,12 +1,11 @@
-<div layout="column" layout-padding="" style="vertical-align: top">
+<div class="layout-padding registration-container" layout="column">
     <!--TODO: Input validation (e.g. phone number, postcode?(only germany?))-->
-    <span flex="20"></span>
-    <md-content class="registration-form" layout="row" flex="35">
-        <span flex="35"></span>
-        <md-card flex="30">
-            <md-card-content>
-                <form name="$ctrl.registrationForm">
-                    <div layout="row">
+    <md-content class="registration-form form-outline">
+        <h1 class="form-title"> Create User Account </h1>
+        <form name="$ctrl.registrationForm">
+            <md-card class="form-background">
+                <md-card-content>
+                    <div layout="row" layout-align="space-around">
                         <md-input-container class="md-block">
                             <label>First Name</label>
                             <input type="text" name="firstName" ng-model="$ctrl.registration.firstName" required/>
@@ -22,7 +21,7 @@
                             </div>
                         </md-input-container>
                     </div>
-                    <div layout="row">
+                    <div layout="row" layout-align="space-around">
                         <md-input-container class="md-block">
                             <label>Street</label>
                             <input type="text" name="street" ng-model="$ctrl.registration.street"/>
@@ -32,7 +31,7 @@
                             <input type="text" name="streetNumber" ng-model="$ctrl.registration.streetNumber"/>
                         </md-input-container>
                     </div>
-                    <div layout="row">
+                    <div layout="row" layout-align="space-around">
                         <md-input-container class="md-block">
                             <label>Postcode</label>
                             <input type="text" name="postcode" ng-model="$ctrl.registration.postcode"/>
@@ -44,7 +43,7 @@
                     </div>
                     <md-input-container class="md-block">
                         <label>Email</label>
-                        <input type="email" name="username" ng-model="$ctrl.registration.email"
+                        <input type="email" name="email" ng-model="$ctrl.registration.email"
                                ng-pattern="/^.+@.+\..+$/" required/>
                         <div ng-messages="$ctrl.registrationForm.username.$error" role="alert">
                             <div ng-message-exp="['required','pattern']">Please enter a valid email address.</div>
@@ -65,20 +64,35 @@
                             <div ng-message="required">Please enter a username.</div>
                         </div>
                     </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Password</label>
-                        <!--TODO: why 64 max?-->
-                        <input type="password" name="password" ng-model="$ctrl.registration.password" required md-maxlength="64"/>
-                        <!--TODO: what does the multiple directive?-->
-                        <div ng-messages="RegistrationForm.password.$error" role="alert" multiple="">
-                            <div ng-message="required">Please enter a password.</div>
-                        </div>
-                    </md-input-container>
-                    <md-button ng-disabled="!$ctrl.registrationForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Register &nbsp</md-button>
-                </form>
-            </md-card-content>
-        </md-card>
-        <span flex></span>
+                    <div name="passwordFields" layout="column">
+                        <md-input-container class="md-block">
+                            <label>Password</label>
+                            <input type="password" name="password" ng-model="$ctrl.registration.password"
+                                   equals="{{passwordConfirmation}}" required/>
+                            <div ng-messages="$ctrl.registrationForm.password.$error" role="alert">
+                                <div ng-message="equals">Passwords do not match.</div>
+                                <div ng-message="required">Please enter a password.</div>
+                                <!--TODO-->
+                                <!--<div ng-message="minlength">Your password should have at least 8 characters.</div>-->
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Confirm Password</label>
+                            <input type="password" name="passwordConfirm" ng-model="passwordConfirmation"
+                                   equals="{{$ctrl.registration.password}}" required/>
+                            <div ng-messages="$ctrl.registrationForm.passwordConfirm.$error" role="alert">
+                                <div ng-message="equals">Passwords do not match.</div>
+                                <div ng-message="required">Please confirm your password.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div ng-show="$ctrl.usernameExists" role="alert">
+                        <div class="error-msg">Username {{$ctrl.existingUsername}} already exists. Please try another one.</div>
+                    </div>
+                    <md-button ng-disabled="!$ctrl.registrationForm.$valid" ng-click="$ctrl.submit()"
+                               class="md-raised md-primary">&nbsp Register &nbsp</md-button>
+                </md-card-content>
+            </md-card>
+        </form>
     </md-content>
-    <span flex></span>
 </div>

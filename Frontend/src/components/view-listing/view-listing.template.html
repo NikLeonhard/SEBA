@@ -1,18 +1,23 @@
-<md-card>
+<md-card class="outline">
     <md-card-title>
         <md-card-title-media>
             <div layout="row" layout-align="center center" layout-padding>
            <!--     <img ng-src="{{$ctrl.getPosterURL()}}" class="md-media-md">-->
             </div>
         </md-card-title-media>
-        <md-card-title-text>
-
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()" ng-show="$ctrl.listing.user==$ctrl.UserService.getCurrentUser()._id" >
+        <md-card-title-text layout="row" layout-align="space-between">
+            <div layout="column">
+            <span class="md-headline">{{$ctrl.listing.title}}</span>
+            <span class="md-subhead">{{$ctrl.listing.type}}</span>
+            </div>
+            <md-card-actions layout="row">
+                <md-button class="md-icon-button" aria-label="Edit Item" ng-click="$ctrl.edit()"
+                           ng-show="$ctrl.listing.user==$ctrl.UserService.getCurrentUser()._id" >
                     <md-icon><ng-md-icon icon="mode_edit"></ng-md-icon></md-icon>
                 </md-button>
 
-                <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()" ng-show="$ctrl.listing.user==$ctrl.UserService.getCurrentUser()._id" >
+                <md-button class="md-icon-button"aria-label="Delete Item" ng-click="$ctrl.delete()"
+                           ng-show="$ctrl.listing.user==$ctrl.UserService.getCurrentUser()._id" >
                     <md-icon><ng-md-icon icon="delete" ></ng-md-icon></md-icon>
                 </md-button>
 
@@ -21,14 +26,11 @@
                 </md-button>
             </md-card-actions>
 
-            <span class="md-headline">{{$ctrl.listing.title}}</span>
-            <span class="md-subhead">{{$ctrl.listing.type}}</span>
-
         </md-card-title-text>
 
     </md-card-title>
 
-    <md-card-content>
+    <md-card-content class="listing-details-background listing-details-margin">
         <h4>Money</h4>
         <p>{{$ctrl.listing.amount}} €</p>
         <h4>User</h4>

@@ -1,3 +1,7 @@
-md-card {
-    margin-top: 100px;
+.title-background {
+    background-color: white;
+}
+
+.listing-details-margin {
+    margin: 0px 10px 10px;
 }

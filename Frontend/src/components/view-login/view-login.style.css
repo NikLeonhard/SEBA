@@ -1,10 +1,8 @@
-.login-form md-card { /*TODO: is this doing anything?*/
-    padding: 0 !important;
-    margin-top: 100px;
-}
-.login-form md-card md-card-title { /*TODO: is this doing anything?*/
+.login-form md-card md-card-title {
     background-color: blue;
 }
-.login-form .error-msg {
-    color: rgb(221,44,0);
+
+.login-form {
+    /*max-width: 300px;*/
+    margin:0 auto;
 }

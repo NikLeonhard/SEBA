@@ -10,7 +10,7 @@ class ViewListingEditComponent {
         this.controller = ViewListingEditComponentController;
         this.template = template;
         this.bindings = {
-            listing: '<',
+            listing: '<'
         }
     }
 
@@ -21,19 +21,15 @@ class ViewListingEditComponent {
 
 class ViewListingEditComponentController{
     constructor($state, ListingsService){
-        this.model = {};
         this.$state = $state;
         this.ListingsService = ListingsService;
     }
 
 
     $onInit() {
-        //Clone the Movie Data
-        this.model = JSON.parse(JSON.stringify(this.listing))
     }
 
     cancel() {
-        this.model = JSON.parse(JSON.stringify(this.listing));
         this.$state.go('viewYourListings',{});
     };
 
@@ -51,8 +47,9 @@ class ViewListingEditComponentController{
     delete() {
         let _id = this.listing['_id'];
 
-        this.ListingsService.delete(_id);
-        this.$state.go('viewYourListings',{});
+        this.ListingsService.delete(_id).then(response => {
+            this.$state.go('viewYourListings',{});
+        });
     };
 
     static get $inject(){

@@ -27,20 +27,34 @@ class ViewRegisterComponentController{
     }
 
     $onInit() {
-        this.register = {};
+        this.registration = {};
+        this.usernameExists = false;
     }
 
     submit(){
-        // TODO
-        let user = this.login.username;
-        let password = this.login.password;
+        let newUser = this.registration;
 
          // remove focus (e.g. from input field)
          document.activeElement.blur();
 
-        /*this.UserService.login(user,password).then(()=> {
+        this.UserService.signup(newUser).then(()=> {
+            this.usernameExists = false;
             this.$state.go('index',{});
-        });*/
+        }, response => {
+            if (response.status === 400 && response.data.code === 11000) {
+                console.log("username already in use");
+                this.existingUsername = this.registration.username;
+                this.usernameExists = true;
+                this.clearCredentials();
+            }
+        });
+    }
+
+    clearCredentials() {
+        this.registration.username = null;
+        this.registration.password = null;
+        this.registrationForm.$setPristine();
+        this.registrationForm.$setUntouched();
     }
 
     static get $inject(){

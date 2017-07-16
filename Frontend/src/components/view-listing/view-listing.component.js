@@ -30,7 +30,7 @@ class ViewListingComponent {
 class ViewListingComponentController{
     constructor($state,ListingsService,UserService, MessageService){
         this.$state = $state;
-        this.Listing = ListingsService;
+        this.ListingService = ListingsService;
         this.UserService = UserService;
         this.MessageService = MessageService;
     }
@@ -43,7 +43,7 @@ class ViewListingComponentController{
 
     delete() {
         let _id = this.listing['_id'];
-        this.Listing.delete(_id);
+        this.ListingService.delete(_id);
         this.$state.go('viewYourListings',{});
     };
 

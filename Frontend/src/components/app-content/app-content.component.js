@@ -2,6 +2,7 @@
 'use strict';
 
 import template from './app-content.template.html';
+import './app-content.style.css'
 
 class AppContentComponent {
     constructor(){

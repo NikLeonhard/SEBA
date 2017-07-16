@@ -44,21 +44,22 @@ export default function middlewares ($httpProvider,$windowProvider,$qProvider,$s
         };
     });
 
+    // TODO: is this necessary?
     //  register the Error interceptor via an anonymous factory
-    $httpProvider.interceptors.push(() => {
-        return {
-            'responseError': function(rejection) {
-
-                // do something on error
-                if(rejection.status == 400 || rejection.status == 401) {
-                    $state.go('login',{});
-                }
-
-                return $q.reject(rejection);
-            }
-
-        };
-    });
+    // $httpProvider.interceptors.push(() => {
+    //     return {
+    //         'responseError': function(rejection) {
+    //
+    //             // do something on error
+    //             if(rejection.status == 400 || rejection.status == 401) {
+    //                 $state.go('login',{});
+    //             }
+    //
+    //             return $q.reject(rejection);
+    //         }
+    //
+    //     };
+    // });
 
 
 }

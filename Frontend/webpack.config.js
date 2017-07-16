@@ -50,5 +50,5 @@ module.exports = {
         }),
 
         new ExtractTextPlugin("styles/[name].css"),
-    ]
+    ],
 };
