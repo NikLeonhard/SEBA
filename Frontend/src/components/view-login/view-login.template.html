@@ -4,14 +4,14 @@
     <form class="login-form" name="$ctrl.loginForm">
         <md-card class="form-background">
             <md-card-content>
-                    <md-input-container class="md-block">
+                    <md-input-container class="md-block login-input">
                         <label>Username</label>
                         <input type="text" name="username" ng-model="$ctrl.login.username" required/>
                         <div ng-messages="$ctrl.loginForm.username.$error" role="alert">
                             <div ng-message="required">Please enter your username.</div>
                         </div>
                     </md-input-container>
-                    <md-input-container class="md-block">
+                    <md-input-container class="md-block login-input">
                         <label>Password</label>
                         <input type="password" name="password" ng-model="$ctrl.login.password" required md-maxlength="64"/>
                         <div ng-messages="$ctrl.loginForm.password.$error" role="alert" multiple="">

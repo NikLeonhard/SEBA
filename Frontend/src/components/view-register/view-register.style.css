@@ -4,3 +4,15 @@
     max-width: 650px;
     width:100%
 }
+
+md-card .registration-input {
+    margin: 15px 0;
+}
+
+.registration-input-group {
+    max-height: 54px;
+    height: 100%;
+    margin: 15px 0;
+} .md-block {
+    margin: 0;
+  }

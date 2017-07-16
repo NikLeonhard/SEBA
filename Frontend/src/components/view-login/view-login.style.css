@@ -6,3 +6,7 @@
     /*max-width: 300px;*/
     margin:0 auto;
 }
+
+md-card .login-input {
+    margin: 15px 0;
+}
