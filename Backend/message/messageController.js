@@ -7,7 +7,7 @@ exports.getMessages = function(req, res) {
 
 	Message.find({
 		or: [
-			{ $and: [{sender: req.user}, {recipeint: req.body}] },
+			{ $and: [{sender: req.user}, {recipient: req.body}] },
 			{ $and: [{sender: req.body}, {recipient: req.user}] }
 		]
 	}, function(err, messages) {
