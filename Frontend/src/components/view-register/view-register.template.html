@@ -65,14 +65,28 @@
                             <div ng-message="required">Please enter a username.</div>
                         </div>
                     </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Password</label>
-                        <!--TODO: why 64 max?-->
-                        <input type="password" name="password" ng-model="$ctrl.registration.password" required md-maxlength="64"/>
-                        <div ng-messages="$ctrl.registrationForm.password.$error" role="alert">
-                            <div ng-message="required">Please enter a password.</div>
-                        </div>
-                    </md-input-container>
+                    <div name="passwordFields" layout="column">
+                        <md-input-container class="md-block">
+                            <label>Password</label>
+                            <input type="password" name="password" ng-model="$ctrl.registration.password"
+                                   equals="{{passwordConfirmation}}" required/>
+                            <div ng-messages="$ctrl.registrationForm.password.$error" role="alert">
+                                <div ng-message="equals">Passwords do not match.</div>
+                                <div ng-message="required">Please enter a password.</div>
+                                <!--TODO-->
+                                <!--<div ng-message="minlength">Your password should have at least 8 characters.</div>-->
+                            </div>
+                        </md-input-container>
+                        <md-input-container class="md-block">
+                            <label>Confirm Password</label>
+                            <input type="password" name="passwordConfirm" ng-model="passwordConfirmation"
+                                   equals="{{$ctrl.registration.password}}" required/>
+                            <div ng-messages="$ctrl.registrationForm.passwordConfirm.$error" role="alert">
+                                <div ng-message="equals">Passwords do not match.</div>
+                                <div ng-message="required">Please confirm your password.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
                     <div ng-show="$ctrl.usernameExists" role="alert">
                         <div class="error-msg">Username {{$ctrl.existingUsername}} already exists. Please try another one.</div>
                     </div>
