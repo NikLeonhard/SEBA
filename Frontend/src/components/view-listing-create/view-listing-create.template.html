@@ -13,7 +13,7 @@
                     <md-input-container id="amount" class="md-icon-float md-block">
                         <label>Amount</label>
                         <md-icon><ng-md-icon icon="attach_money" ></ng-md-icon></md-icon>
-                        <input ng-model="$ctrl.listing.amount" type="text" required>
+                        <input type="number" min="0" ng-model="$ctrl.listing.amount" required>
                     </md-input-container>
                     <md-input-container class="md-icon-float md-block">
                         <label>Postal Code</label>
