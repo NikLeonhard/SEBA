@@ -15,3 +15,14 @@
 	padding: 1em 5%;
 	margin-right: 19%;
 }
+
+form#messageForm {
+	width: 75%;
+	float: right;
+}
+
+#conversationList {
+	width: 23%;
+	border-right: 2px solid #bbb;
+	float: left;
+}

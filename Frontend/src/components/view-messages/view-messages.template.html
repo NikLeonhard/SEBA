@@ -1,6 +1,6 @@
 <div layout="column" layout-padding>
 	<md-content class="md-no-momentum">
-		<md-list id="conversations">
+		<md-list id="conversationList">
 			<md-list-item aria-label="Conversation" ng-click="TODO: OPEN" ng-repeat="conversation in $ctrl.conversations">
 				<div class="panel panel-info">
 					<div class="panel-heading"> {{conversation.partner}} </div>
@@ -8,7 +8,7 @@
 			</md-list-item>
 		</md-list>
 
-		<form name="messageForm">
+		<form name="messageForm" id="messageForm">
 			<md-list id="messages">
 				<md-list-item aria-label="Message" ng-repeat="message in $ctrl.messages">
 					<div class="message-body">
