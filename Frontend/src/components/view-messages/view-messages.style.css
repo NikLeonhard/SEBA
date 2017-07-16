@@ -1,0 +1,28 @@
+.user-message {
+	background: rgb(95, 158, 160);
+	color: black;
+	width: 70%;
+	padding: 1em 5%;
+	margin-left: 19%;
+	border-radius: 2em;
+}
+
+.partner-message {
+	background: white;
+	border: 1px solid black;
+	border-radius: 2em;
+	width: 70%;
+	padding: 1em 5%;
+	margin-right: 19%;
+}
+
+form#messageForm {
+	width: 75%;
+	float: right;
+}
+
+#conversationList {
+	width: 23%;
+	border-right: 2px solid #bbb;
+	float: left;
+}
