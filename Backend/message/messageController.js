@@ -3,39 +3,41 @@ var Message = require('./messageSchema');
 
 // TODO: Get conversation list of user
 // Create endpoint /api/messages for GET
-exports.getMessageList = function(req, res) {
-	// TODO: GET ALL CONVERSATIONS FOR CURRENT USER
+exports.getMessages = function(req, res) {
 
-	/*
-    Message.find(function(err, messages) {
-        if (err) {
-            res.status(400).send(err);
-            return;
-        }
+	Message.find({
+		or: [
+			{ $and: [{sender: req.user}, {recipeint: req.body}] },
+			{ $and: [{sender: req.body}, {recipient: req.user}] }
+		]
+	}, function(err, messages) {
+		if (err) {
+			res.status(400).send(err);
+			return;
+		}
+
         res.json(messages);
-    });
-	*/
+	});
 };
 
 // TODO: Get all messages of a conversation
-// Create endpoint /api/messages/:message_id for GET
-exports.getMessages = function(req, res) {
-	// TODO: GET MESSAGES EXCHANGED WITH CONVERSATION PARTNER USERID (= CONVERSATION ID)
+// Create endpoint /api/messages/:conversation_id for GET
+exports.getConversations = function(req, res) {
 
-	/*
-    Message.findById(req.params.message_id, function(err, message) {
-        if (err) {
-            res.status(400).send(err)
-            return;
-        };
+	Message.find({
+		$or: [{sender: req.user}, {recipient: req.user}]
+	}, function(err, conversations) {
+		if (err) {
+			res.status(400).send(err);
+			return;
+		}
 
-        res.json(message);
-    });
-	*/
+        res.json(conversations);
+	});
 };
 
 // TODO: Save a new Message to a conversation
-// Create endpoint /api/messages/:message_id for PUT
+// Create endpoint /api/messages/:conversation_id for PUT
 exports.putMessage = function(req, res) {
 	// TODO: INSERT MESSAGE INTO MESSAGES
 
@@ -52,6 +54,7 @@ exports.putMessage = function(req, res) {
 				res.status(400).send(err);
 				return;
 			}
+			
 			res.json(message);
 		});
 };

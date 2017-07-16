@@ -10,7 +10,7 @@ class ViewListingEditComponent {
         this.controller = ViewListingEditComponentController;
         this.template = template;
         this.bindings = {
-            listing: '<',
+            listing: '<'
         }
     }
 
@@ -34,6 +34,8 @@ class ViewListingEditComponentController{
     };
 
     save() {
+        let _id = this.listing['_id'];
+
         this.ListingsService.update(this.listing).then(data => {
             this.listing = JSON.parse(JSON.stringify(data));
 
@@ -46,7 +48,7 @@ class ViewListingEditComponentController{
         let _id = this.listing['_id'];
 
         this.ListingsService.delete(_id).then(response => {
-            this.$state.go('',{});
+            this.$state.go('viewYourListings',{});
         });
     };
 

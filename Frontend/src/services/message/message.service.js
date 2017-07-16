@@ -16,11 +16,10 @@ export default class MessageService {
     static get name() {
         return 'messageService';
     }
-
-	/*
-    create(listing) {
+	
+    save(message) {
         let url = this.resourceUrl;
-        return this.$http.post(url,listing).then(response => {
+        return this.$http.post(url, message).then(response => {
 
             return new Promise((resolve, reject) => {
                 resolve(response.data);
@@ -29,6 +28,8 @@ export default class MessageService {
         })
     }
 
+
+	/*
     list() {
 
         let url = this.resourceUrl;
