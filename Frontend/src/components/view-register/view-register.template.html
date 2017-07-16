@@ -1,12 +1,11 @@
-<div layout="column" layout-padding="" style="vertical-align: top">
+<div class="layout-padding" layout="column" style="vertical-align: top">
     <!--TODO: Input validation (e.g. phone number, postcode?(only germany?))-->
-    <span flex="20"></span>
-    <md-content class="registration-form" layout="row" flex="35">
-        <span flex="35"></span>
-        <md-card flex="30">
-            <md-card-content>
-                <form name="$ctrl.registrationForm">
-                    <div layout="row">
+    <md-content class="registration-form form-outline">
+        <h1 class="form-title"> Create User Account </h1>
+        <form name="$ctrl.registrationForm">
+            <md-card class="form-background">
+                <md-card-content>
+                    <div layout="row" layout-align="space-around">
                         <md-input-container class="md-block">
                             <label>First Name</label>
                             <input type="text" name="firstName" ng-model="$ctrl.registration.firstName" required/>
@@ -22,7 +21,7 @@
                             </div>
                         </md-input-container>
                     </div>
-                    <div layout="row">
+                    <div layout="row" layout-align="space-around">
                         <md-input-container class="md-block">
                             <label>Street</label>
                             <input type="text" name="street" ng-model="$ctrl.registration.street"/>
@@ -32,7 +31,7 @@
                             <input type="text" name="streetNumber" ng-model="$ctrl.registration.streetNumber"/>
                         </md-input-container>
                     </div>
-                    <div layout="row">
+                    <div layout="row" layout-align="space-around">
                         <md-input-container class="md-block">
                             <label>Postcode</label>
                             <input type="text" name="postcode" ng-model="$ctrl.registration.postcode"/>

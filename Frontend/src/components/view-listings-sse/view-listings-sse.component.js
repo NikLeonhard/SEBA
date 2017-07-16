@@ -5,8 +5,6 @@
 'use strict';
 
 import template from './view-listings-sse.template.html';
-import ListingsService from './../../services/listings/listings.service';
-import UserService from './../../services/user/user.service';
 import './view-listings-sse.style.css'
 
 class ViewListingsSseComponent{
@@ -15,7 +13,7 @@ class ViewListingsSseComponent{
         this.controller = ViewListingsSseComponentController;
         this.template = template;
         this.bindings = {
-            listings: '<',
+            listings: '<'
         }
     }
 
@@ -25,10 +23,8 @@ class ViewListingsSseComponent{
 }
 
 class ViewListingsSseComponentController{
-    constructor($state,ListingsService,UserService){
+    constructor($state){
         this.$state = $state;
-        this.Listings = ListingsService;
-        this.UserService = UserService;
     }
 
     details (listing) {
@@ -37,7 +33,7 @@ class ViewListingsSseComponentController{
     };
 
     static get $inject(){
-        return ['$state', ListingsService.name, UserService.name];
+        return ['$state'];
     }
 }
 

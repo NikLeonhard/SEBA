@@ -1,10 +1,9 @@
 <div layout="column" layout-padding="">
-    <span flex="20"></span>
-    <md-content class="login-form" layout="row" flex="35">
-        <span flex="35"></span>
-        <md-card flex="30">
+    <md-content class="login-form md-no-momentum form-outline">
+    <h1 class="form-title"> Login </h1>
+    <form class="login-form" name="$ctrl.loginForm">
+        <md-card class="form-background">
             <md-card-content>
-                <form name="$ctrl.loginForm">
                     <md-input-container class="md-block">
                         <label>Username</label>
                         <input type="text" name="username" ng-model="$ctrl.login.username" required/>
@@ -24,10 +23,8 @@
                     </div>
                     <md-button type="submit" ng-disabled="!$ctrl.loginForm.$valid" ng-click="$ctrl.submit()"
                                class="md-raised md-primary">&nbsp Login &nbsp</md-button>
-                </form>
             </md-card-content>
         </md-card>
-        <span flex></span>
+    </form>
     </md-content>
-    <span flex></span>
 </div>

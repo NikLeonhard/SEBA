@@ -1,7 +1,8 @@
 <div>
-    <h1 id="listing-page-title">Your personal listings</h1>
+    <h1 class="listing-page-title">Your personal listings</h1>
     <md-list>
-        <md-list-item aria-label="Sponsors" ng-click="$ctrl.details(listing)" class="noright" ng-repeat="listing in $ctrl.listings" ng-show="listing.user==$ctrl.UserService.getCurrentUser()._id">
+        <md-list-item aria-label="Sponsors" ng-click="$ctrl.details(listing)" class="noright"
+                      ng-repeat="listing in $ctrl.listings" ng-show="listing.user==$ctrl.UserService.getCurrentUser()._id">
             <!--<md-icon><ng-md-icon icon="insert_drive_file"></ng-md-icon></md-icon>-->
             <div class="panel panel-info">
                 <div class="panel-heading"> {{listing.title}}
