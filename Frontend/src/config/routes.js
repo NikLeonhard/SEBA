@@ -14,6 +14,7 @@ import ViewTutorialComponent from './../components/view-tutorial/view-tutorial.c
 import ViewMessagesComponent from './../components/view-messages/view-messages.component';
 
 import ListingsService from './../services/listings/listings.service';
+import MessageService from './../services/message/message.service';
 
 resolveListing.$inject = ['$stateParams', ListingsService.name];
 function resolveListing($stateParams,listingsService){
@@ -23,6 +24,21 @@ function resolveListing($stateParams,listingsService){
 resolveListings.$inject = [ListingsService.name];
 function resolveListings(listingsService){
 	return listingsService.list();
+}
+
+resolveConversations.$inject = [MessageService.name];
+function resolveConversations(messageService){
+    return messageService.listConversations();
+}
+
+resolveMessages.$inject = [MessageService.name];
+function resolveMessages(messageService){
+    return messageService.listMessages();
+}
+
+resolveMessage.$inject = ['$stateParams', MessageService.name];
+function resolveMessage($stateParams,messageService){
+    return messageService.get($stateParams.messageId);
 }
 
 
@@ -95,7 +111,12 @@ export default function config ($stateProvider, $urlRouterProvider){
 	})
 		.state('viewMessages', {
 		url: '/viewMessages',
-		component: ViewMessagesComponent.name
+		component: ViewMessagesComponent.name,
+		resolve:{
+			messages: resolveMessages,
+			conversations: resolveConversations
+
+		}
 	})
 }
 

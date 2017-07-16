@@ -39,6 +39,31 @@ export default class MessageService {
         })
     }
 
+    listConversations() {
+
+        let url = this.resourceUrl;
+        return this.$http.get(url).then(response => {
+
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            });
+
+        });
+
+    }
+
+    listMessages() {
+
+        let url = this.resourceUrl;
+        return this.$http.get(url).then(response => {
+
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            });
+
+        });
+
+    }
 
 
 

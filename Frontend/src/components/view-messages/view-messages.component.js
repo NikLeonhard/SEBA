@@ -13,6 +13,7 @@ class ViewMessagesComponent{
 		this.message = {};
 		this.bindings = {
 			messages: '<',
+			conversations: '<'
 		}
 	}
 
