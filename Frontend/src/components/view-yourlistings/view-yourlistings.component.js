@@ -37,8 +37,9 @@ class ViewYourListingsComponentController{
     delete(listing) {
             let _id = listing['_id'];
             this.ListingService.delete(_id).then(response => {
-            let index = this.listings.map(x => x['_id']).indexOf(_id);
-            this.listings.splice(index, 1)});
+                let index = this.listings.map(x => x['_id']).indexOf(_id);
+                this.listings.splice(index, 1)
+            });
         }
 
     details (listing) {
