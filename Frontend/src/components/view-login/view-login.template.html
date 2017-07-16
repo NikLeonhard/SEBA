@@ -19,7 +19,7 @@
                             <div ng-message="required">Please enter your password.</div>
                         </div>
                     </md-input-container>
-                    <div ng-show="$ctrl.invalidCredentials" role="alert" multiple="">
+                    <div ng-show="$ctrl.invalidCredentials" role="alert">
                         <div class="error-msg">Invalid Credentials. Please try again.</div>
                     </div>
                     <md-button type="submit" ng-disabled="!$ctrl.loginForm.$valid" ng-click="$ctrl.submit()"

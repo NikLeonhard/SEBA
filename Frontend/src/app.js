@@ -54,10 +54,11 @@ let app = angular.module('app', [
     ViewTutorial.name,
 ]);
 
+// TODO: is this even used?
 app.filter('compareUsers',function(listing
 ){
     let currentUser = this.UserService.getCurrentUser();
-    return listing;
+    // return listing;
     if(listing.user==currentUser)
         return listing;
 

@@ -44,7 +44,7 @@
                     </div>
                     <md-input-container class="md-block">
                         <label>Email</label>
-                        <input type="email" name="username" ng-model="$ctrl.registration.email"
+                        <input type="email" name="email" ng-model="$ctrl.registration.email"
                                ng-pattern="/^.+@.+\..+$/" required/>
                         <div ng-messages="$ctrl.registrationForm.username.$error" role="alert">
                             <div ng-message-exp="['required','pattern']">Please enter a valid email address.</div>
@@ -69,12 +69,15 @@
                         <label>Password</label>
                         <!--TODO: why 64 max?-->
                         <input type="password" name="password" ng-model="$ctrl.registration.password" required md-maxlength="64"/>
-                        <!--TODO: what does the multiple directive?-->
-                        <div ng-messages="RegistrationForm.password.$error" role="alert" multiple="">
+                        <div ng-messages="$ctrl.registrationForm.password.$error" role="alert">
                             <div ng-message="required">Please enter a password.</div>
                         </div>
                     </md-input-container>
-                    <md-button ng-disabled="!$ctrl.registrationForm.$valid" ng-click="$ctrl.submit()" class="md-raised md-primary">&nbsp Register &nbsp</md-button>
+                    <div ng-show="$ctrl.usernameExists" role="alert">
+                        <div class="error-msg">Username {{$ctrl.existingUsername}} already exists. Please try another one.</div>
+                    </div>
+                    <md-button ng-disabled="!$ctrl.registrationForm.$valid" ng-click="$ctrl.submit()"
+                               class="md-raised md-primary">&nbsp Register &nbsp</md-button>
                 </form>
             </md-card-content>
         </md-card>
