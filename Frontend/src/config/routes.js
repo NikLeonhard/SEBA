@@ -26,15 +26,19 @@ function resolveListings(listingsService){
 	return listingsService.list();
 }
 
-resolveMessages.$inject = ['$stateParams', MessageSevice.name];
-function resolveMessages(messageService) {
-	return messageService.listMessages($stateParams.conversationId);
+resolveConversations.$inject = [MessageService.name];
+function resolveConversations(messageService){
+    return messageService.listConversations();
 }
 
-resolveConversations.$inject = [MessageService.name];
-function resolveConversations(messageService) {
-	return messageService.listConversations();
+resolveMessages.$inject = [MessageService.name];
+function resolveMessages(messageService){
+    return messageService.listMessages();
 }
+
+resolveMessage.$inject = ['$stateParams', MessageService.name];
+function resolveMessage($stateParams,messageService){
+    return messageService.get($stateParams.messageId);
 
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -107,7 +111,7 @@ export default function config ($stateProvider, $urlRouterProvider){
 		.state('viewMessages', {
 		url: '/viewMessages',
 		component: ViewMessagesComponent.name,
-		resolve: {
+		resolve:{
 			messages: resolveMessages,
 			conversations: resolveConversations
 		}
