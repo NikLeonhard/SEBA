@@ -6,6 +6,14 @@ var Message = require('./messageSchema');
 exports.getMessageList = function(req, res) {
 	// TODO: GET ALL CONVERSATIONS FOR CURRENT USER
 
+	Message.find(function(err, messages) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+	});
+	
+	
 	/*
     Message.find(function(err, messages) {
         if (err) {

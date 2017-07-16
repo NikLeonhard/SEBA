@@ -1,20 +1,38 @@
 <div layout="column" layout-padding>
-    <md-content class="md-no-momentum">
-        <h1> {{$ctrl.message.username}} </h1>
-        <br/>
-        <form name="listingForm">
+	<md-content class="md-no-momentum">
+		<md-list id="conversations">
+			<md-list-item aria-label="Conversation" ng-click="TODO: OPEN" ng-repeat="conversation in $ctrl.conversations">
+				<div class="panel panel-info">
+					<div class="panel-heading"> {{conversation.partner}} </div>
+				</div>
+			</md-list-item>
+		</md-list>
+
+		<form name="messageForm">
+			<md-list id="messages">
+				<md-list-item aria-label="Message" ng-repeat="message in $ctrl.messages">
+					<div class="message-body">
+						<div class="message-sender">{{message.sender}}</div>
+						<div>{{message.content}}</div>
+						<div class="message-timestamp">{{message.time}}</div>
+					</div>
+				</md-list-item>
+			</md-list>
+
             <md-input-container class="md-icon-float md-block">
                 <label>Message</label>
-                <md-icon><ng-md-icon icon="message" ></ng-md-icon></md-icon>
+                <md-icon><ng-md-icon icon="local_post_office" ></ng-md-icon></md-icon>
                 <input ng-model="$ctrl.message.content" type="text" required>
             </md-input-container>
+			
+			<input type="hidden" ng-model="$ctrl.message.recipient" type="hidden" value="$ctrl.recipient" />
 
-            <div layout="row">
-                <span flex></span>
-                <md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()" ng-disabled="">Send</md-button>
-            </div>
+			<div layout="row">
+				<span flex></span>
+				<md-button class="md-raised md-primary" type="submit" ng-click="$ctrl.save()">Send</md-button>
+			</div>
 
-        </form>
-    </md-content>
+		</form>
+	</md-content>
 
 </div>

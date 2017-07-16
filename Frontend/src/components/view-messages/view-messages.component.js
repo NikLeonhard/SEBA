@@ -1,9 +1,8 @@
 'use strict';
 
 import template from './view-messages.template.html';
-import ListingsService from './../../services/message/message.service';
+import MessageService from './../../services/message/message.service';
 import UserService from './../../services/user/user.service';
-import './view-messages.style.css';
 
 class ViewMessagesComponent{
 
@@ -21,66 +20,29 @@ class ViewMessagesComponent{
 }
 
 class ViewMessagesComponentController{
-	constructor($state,MessagesService,UserService){
+	constructor($state, MessagesService, UserService){
 		this.$state = $state;
 		this.Messages = MessagesService;
 		this.UserService = UserService;
 	}
+	
+	save() {
+        let user = this.UserService.getCurrentUser();
 
-	/*
-	details (listing) {
-		let _id = messages['_id'];
-		this.$state.go('messages',{ listingId:_id});
-	};
+        this.message['sender'] = user['_id'];
+
+        this.MessageService.create(this.message).then(data => {
+            let _id = data['_id'];
+
+			//TODO: Refresh Page
+            this.$state.go('viewMessages',{});
+        });
+
+    };
 
 	static get $inject(){
-		return ['$state', ListingsService.name, UserService.name];
+		return ['$state', MessageService.name, UserService.name];
 	}
-
-	queryTitle(input, listing){
-		if(typeof input == 'undefined' || input.toString().length==0)
-			return true;
-
-		return(listing.title.includes(input.toString()));
-	}
-
-
-	queryRange(lowerEnd,upperEnd,listing){
-		var lowerEndInt = parseInt(lowerEnd,10);
-		var upperEndInt = parseInt(upperEnd,10);
-
-
-		if(lowerEndInt.toString()=="NaN" && upperEndInt.toString()=="NaN") {
-			return true
-		}
-
-
-
-		if(lowerEndInt==0 && upperEndInt==0) {
-			return true;
-		}
-
-		if(lowerEndInt>upperEndInt)
-			return (listing.amount>=upperEndInt && listing.amount<=lowerEndInt)
-
-
-		else {
-			return (listing.amount<=upperEndInt && listing.amount>=lowerEndInt)
-		}
-	}
-
-	queryZipCode(zipCode, listing) {
-		if(typeof zipCode === 'undefined' || zipCode.toString().length ==0)
-			return true;
-
-		return listing.postcode == zipCode;
-	}
-
-	queryAll(input,lowerEnd,upperEnd,listing,zipCode){
-		return (this.queryTitle(input,listing) && this.queryRange(lowerEnd,upperEnd,listing)&& this.queryZipCode(zipCode,listing));
-	}
-	*/
-
 }
 
 export default ViewMessagesComponent;
