@@ -16,7 +16,7 @@ var Message = new mongoose.Schema({
 		required: true
 	},
 	time: {
-		type: Integer,
+		type: Number,
 		required: true
 	}
 });

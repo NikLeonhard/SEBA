@@ -25,7 +25,7 @@
                 <input ng-model="$ctrl.message.content" type="text" required>
             </md-input-container>
 			
-			<input type="hidden" ng-model="$ctrl.message.recipient" type="hidden" value="$ctrl.recipient" />
+			<input type="hidden" ng-model="$ctrl.message.recipient" type="hidden" value="{{conversation.recipient}}" />
 
 			<div layout="row">
 				<span flex></span>

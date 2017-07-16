@@ -11,6 +11,7 @@ import ngMessages from 'angular-messages';
 
 import ListingService from './services/listings/listings';
 import UserService from './services/user/user';
+import MessageService from './services/message/message';
 
 import Routes from './config/routes';
 import Middlewares from './config/middlewares';
@@ -41,6 +42,7 @@ let app = angular.module('app', [
     ngMdIcons,
     UserService.name,
     ListingService.name,
+	MessageService.name,
     AppContent.name,
 	ViewIndex.name,
 	ViewListingCreate.name,

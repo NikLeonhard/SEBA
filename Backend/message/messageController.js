@@ -3,7 +3,7 @@ var Message = require('./messageSchema');
 
 // TODO: Get conversation list of user
 // Create endpoint /api/messages for GET
-exports.getMessageList = function(req, res) {
+exports.getMessages = function(req, res) {
 	// TODO: GET ALL CONVERSATIONS FOR CURRENT USER
 
 	Message.find(function(err, messages) {
@@ -27,7 +27,7 @@ exports.getMessageList = function(req, res) {
 
 // TODO: Get all messages of a conversation
 // Create endpoint /api/messages/:message_id for GET
-exports.getMessages = function(req, res) {
+exports.getConversations = function(req, res) {
 	// TODO: GET MESSAGES EXCHANGED WITH CONVERSATION PARTNER USERID (= CONVERSATION ID)
 
 	/*

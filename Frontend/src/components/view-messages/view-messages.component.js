@@ -9,6 +9,7 @@ class ViewMessagesComponent{
 	constructor(){
 		this.controller = ViewMessagesComponentController;
 		this.template = template;
+		this.message = {};
 		this.bindings = {
 			messages: '<',
 		}
@@ -22,7 +23,7 @@ class ViewMessagesComponent{
 class ViewMessagesComponentController{
 	constructor($state, MessagesService, UserService){
 		this.$state = $state;
-		this.Messages = MessagesService;
+		this.MessageService = MessagesService;
 		this.UserService = UserService;
 	}
 	
@@ -30,8 +31,9 @@ class ViewMessagesComponentController{
         let user = this.UserService.getCurrentUser();
 
         this.message['sender'] = user['_id'];
+		this.message['time'] = Date.now();
 
-        this.MessageService.create(this.message).then(data => {
+        this.MessageService.save(this.message).then(data => {
             let _id = data['_id'];
 
 			//TODO: Refresh Page

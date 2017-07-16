@@ -14,7 +14,7 @@ function messageRoutes(passport) {
 
     router.route('/')
 		.get(messageController.getConversations)
-        .post(messageController.postMessage);
+        .post(messageController.putMessage);
 
     router.route('/:conversation_id')
         .get(messageController.getMessages);
