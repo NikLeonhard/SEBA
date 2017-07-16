@@ -14,10 +14,11 @@ function messageRoutes(passport) {
 
     router.route('/')
 		.get(messageController.getConversations)
-        .post(messageController.putMessage);
+        .post(messageController.postMessage);
 
     router.route('/:conversation_id')
-        .get(messageController.getMessages);
+        .get(messageController.getMessages)
+        .put(messageController.putMessage);
 
     return router;
 }
