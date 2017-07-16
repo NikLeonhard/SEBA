@@ -9,7 +9,7 @@
 
 
         <md-input-container class="md-icon-float md-block">
-            <input name="zipCode" id="zipCode" ng-model="zipCode" value="" placeholder="Search by zip code" autofocus>
+            <input name="zipCode" id="zipCode" ng-model="zipCode" value="" placeholder="Search by post code" autofocus>
         </md-input-container>
 
 
@@ -25,13 +25,13 @@
     </div>
     <md-list>
         <md-list-item aria-label="Sponsors" ng-click="$ctrl.details(listing)" class="noright"
-                      ng-repeat="listing in $ctrl.listings" ng-show="listing.type=='Sponsor Seeking'">
+                      ng-repeat="listing in $ctrl.listings" ng-show="listing.type=='Sponsor Seeking' && $ctrl.queryAll(query,lowerEnd,upperEnd,listing,zipCode)">
             <!--<md-icon><ng-md-icon icon="insert_drive_file"></ng-md-icon></md-icon>-->
             <div class="panel panel-info">
                 <div class="panel-heading"> {{listing.title}} </div>
                 <div class="panel-body">
                     Amount: {{listing.amount}}<br>
-                    Postcode: {{listing.postcode}}
+                    Post code: {{listing.postcode}}
                 </div>
             </div>
             <!--<md-divider ng-if="!$last"></md-divider>-->
