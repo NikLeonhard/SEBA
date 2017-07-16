@@ -30,7 +30,7 @@ export default class MessageService {
 
     save(message) {
         let url = this.resourceUrl;
-        return this.$http.post(url, message).then(response => {
+        return this.$http.put(url, message).then(response => {
 
             return new Promise((resolve, reject) => {
                 resolve(response.data);
