@@ -58,3 +58,19 @@ exports.putMessage = function(req, res) {
 			res.json(message);
 		});
 };
+
+exports.postMessage = function(req, res) {
+    var message = new Message(req.body);
+    //do not allow user to fake identity. The user who posted the listing must be the same user that is logged in
+    if (!req.user._id.equals(message.sender)) {
+        res.sendStatus(401);
+        return;
+    }
+    message.save(function(err, newMessage) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+        res.status(201).json(newMessage);
+    });
+};

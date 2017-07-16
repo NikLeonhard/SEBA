@@ -7,6 +7,7 @@
 import template from './view-listing.template.html';
 import ListingsService from './../../services/listings/listings.service';
 import UserService from './../../services/user/user.service';
+import MessageService from './../../services/message/message.service';
 import './view-listing.style.css'
 
 class ViewListingComponent {
@@ -27,11 +28,11 @@ class ViewListingComponent {
 }
 
 class ViewListingComponentController{
-    constructor($state,ListingsService,UserService){
+    constructor($state,ListingsService,UserService, MessageService){
         this.$state = $state;
         this.ListingService = ListingsService;
         this.UserService = UserService;
-
+        this.MessageService = MessageService;
     }
 
     edit () {
@@ -53,8 +54,26 @@ class ViewListingComponentController{
         return posterURL;
     }
 
+    message(){
+        let message = {};
+        let user = this.UserService.getCurrentUser();
+
+        message['recipient'] = this.listing['user'];
+        message['sender'] = user['_id'];
+
+        message['content'] = "Starting Conversation!";
+        message['time'] = new Date().getTime();
+
+
+        this.MessageService.create(message).then(data => {
+            let _id = data['_id'];
+
+            this.$state.go('viewMessages',{});
+        });
+    }
+
     static get $inject(){
-        return ['$state', ListingsService.name, UserService.name];
+        return ['$state', ListingsService.name, UserService.name, MessageService.name];
     }
 
 }
