@@ -13,6 +13,7 @@ class ViewMessagesComponent{
 		this.message = {};
 		this.bindings = {
 			messages: '<',
+			conversations: '<'
 		}
 	}
 
@@ -32,7 +33,7 @@ class ViewMessagesComponentController{
         let user = this.UserService.getCurrentUser();
 
         this.message['sender'] = user['_id'];
-		this.message['time'] = Date.now();
+		this.message['time'] = new Date().getTime();
 
         this.MessageService.save(this.message).then(data => {
             let _id = data['_id'];

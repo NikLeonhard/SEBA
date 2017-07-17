@@ -30,7 +30,7 @@ export default class MessageService {
 
     save(message) {
         let url = this.resourceUrl;
-        return this.$http.post(url, message).then(response => {
+        return this.$http.put(url, message).then(response => {
 
             return new Promise((resolve, reject) => {
                 resolve(response.data);
@@ -39,12 +39,16 @@ export default class MessageService {
         })
     }
 
-
-
-
-	/*
-    list() {
-
+	listConversations() {
+		let url = this.resourceUrl;
+		return this.$http.get(url).then(response => {
+			return new Promise((resolve, reject) => {
+				resolve(response.data);
+			})
+		})
+	}
+	
+	listMessages(id) {
         let url = this.resourceUrl;
         return this.$http.get(url).then(response => {
 
@@ -55,40 +59,6 @@ export default class MessageService {
         });
 
     }
-
-    delete(id) {
-        let url = `${ this.resourceUrl }${ id }`;
-        return this.$http.delete(url).then(response => {
-
-            return new Promise((resolve, reject) => {
-                resolve(response.status);
-            });
-
-        })
-    }
-
-    get(id) {
-        let url = `${ this.resourceUrl }${ id }`;
-        return this.$http.get(url).then(response => {
-
-            return new Promise((resolve, reject) => {
-                resolve(response.data);
-            });
-
-        })
-    }
-
-    save(listing) {
-        let url = this.resourceUrl;
-        return this.$http.put(url,listing).then(response => {
-
-            return new Promise((resolve, reject) => {
-                resolve(response.data);
-            });
-
-        })
-    }
-	*/
 }
 
 

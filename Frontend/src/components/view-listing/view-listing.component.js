@@ -75,7 +75,6 @@ class ViewListingComponentController{
         message['content'] = "Starting Conversation!";
         message['time'] = new Date().getTime();
 
-
         this.MessageService.create(message).then(data => {
             let _id = data['_id'];
 
