@@ -15,7 +15,7 @@ class ViewListingComponent {
         this.controller = ViewListingComponentController;
         this.template = template;
         this.bindings = {
-            listing: '<',
+            listing: '<'
         }
 
     }
@@ -35,10 +35,21 @@ class ViewListingComponentController{
         this.MessageService = MessageService;
     }
 
+    $onInit() {
+        this.owner = {};
+        this.resolveUser(this.listing.user);
+    }
+
     edit () {
         let _id = this.listing['_id'];
         this.$state.go('viewListingEdit',{ listingId:_id});
     };
+    
+    resolveUser(userId) {
+        this.UserService.getUserById(userId).then(response => {
+            this.owner = response;
+        });
+    }
 
 
     delete() {

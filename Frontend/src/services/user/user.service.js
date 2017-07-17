@@ -15,7 +15,7 @@ export default class UserService {
     }
 
     static get name(){
-        return 'UserService';
+        return 'userService';
     }
 
     signup(user) {
@@ -42,9 +42,16 @@ export default class UserService {
         return JSON.parse(this.$window.atob(base64)).user;
     }
 
+    getUserById(userId) {
+        let url = `${ this.API_URL }/users/${userId}`;
+        return this.$http.get(url).then(response => {
+            return new Promise((resolve, reject) => {
+                resolve(response.data);
+            });
+        });
+    }
+
     isAuthenticated() {
         return !!this.$window.localStorage['jwtToken'];
     }
-
-
 }

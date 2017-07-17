@@ -7,6 +7,8 @@ function userRoutes(passport) {
 
     router.get('/', userController.get);
 
+    router.get('/:user_id', userController.getUserById);
+
     router.put('/:user_id');
 
     router.post('/login', userController.login);

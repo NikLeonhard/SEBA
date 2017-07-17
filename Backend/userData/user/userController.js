@@ -8,7 +8,21 @@ module.exports.get = function(req, res){
             res.status(400).send(err);
             return;
         }
+        users.forEach(function (user) {
+            user.password = undefined;
+        });
         res.json(users);
+    });
+}
+
+module.exports.getUserById = function(req, res){
+    User.findById(req.params.user_id, function(err, user) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+        user.password = undefined;
+        res.json(user);
     });
 }
 
